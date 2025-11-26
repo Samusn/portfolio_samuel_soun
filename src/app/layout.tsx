@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { BGPattern } from "@/components/ui/bg-pattern";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +26,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-hidden bg-black`}
       >
-        {children}
+        {/* Globaler Checkerboard Background mit vertikalem Verlauf */}
+        <BGPattern
+          variant="checkerboard"
+          mask="fade-y"         // vertikaler Verlauf von oben nach unten
+          fill="#1a1a1a"        // dunkelgraue Quadrate
+          size={24}
+          className="pointer-events-none opacity-50"
+        />
+
+        {/* Page Content */}
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );
