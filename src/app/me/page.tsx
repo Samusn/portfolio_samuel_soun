@@ -105,13 +105,18 @@ export default function AboutPage() {
   const sectionTransition: Transition = { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] };
 
   const [isSocialOpen, setIsSocialOpen] = React.useState(false);
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col">
-      <div className="fixed top-4 left-1/2 z-40 -translate-x-1/2 md:left-4 md:translate-x-0 flex flex-col gap-3">
+      <div className="fixed top-3 left-4 z-40 flex flex-col gap-2 sm:gap-3 sm:top-4">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:text-white hover:border-white/40 backdrop-blur max-w-fit"
+          className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur transition-all duration-300 hover:text-white hover:border-white/40 hover:bg-white/10 hover:shadow-[0_4px_12px_rgba(255,255,255,0.15)] hover:scale-105 max-w-fit"
         >
           <IconHome size={16} />
           <span>Home</span>
@@ -119,7 +124,7 @@ export default function AboutPage() {
         <button
           type="button"
           onClick={() => setIsSocialOpen(!isSocialOpen)}
-          className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:text-white hover:border-white/40 backdrop-blur max-w-fit"
+          className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur transition-all duration-300 hover:text-white hover:border-white/40 hover:bg-white/10 hover:shadow-[0_4px_12px_rgba(255,255,255,0.15)] hover:scale-105 max-w-fit"
         >
           <span>Contact</span>
           <motion.span
@@ -136,7 +141,7 @@ export default function AboutPage() {
             opacity: isSocialOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="overflow-hidden flex flex-col gap-3"
+          className="hidden md:flex overflow-hidden flex-col gap-3"
         >
           {socialLinks.map((social) => (
             <a
@@ -153,20 +158,20 @@ export default function AboutPage() {
         </motion.div>
       </div>
       <motion.section
+        key="about-section"
         id="about"
-        className="flex min-h-screen items-center px-4 py-16 sm:px-6 sm:py-24 lg:px-12"
+        className="flex min-h-screen items-center px-4 py-12 sm:px-6 sm:py-24 lg:px-12"
         variants={sectionFade}
         initial="hidden"
-        animate="visible"
+        animate={isMounted ? "visible" : "hidden"}
         transition={sectionTransition}
       >
-        <div className="mx-auto w-full max-w-5xl space-y-10 sm:space-y-12">
-          <div className="grid gap-10 sm:gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div className="mx-auto w-full max-w-5xl space-y-8 sm:space-y-12">
+          <div className="grid gap-8 sm:gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-center">
             <motion.div
               variants={popIn}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.5 }}
+              animate={isMounted ? "visible" : "hidden"}
               transition={{ ...popInTransition, delay: 0.12 }}
               className="order-2 md:order-1 relative isolate overflow-hidden rounded-3xl shadow-[0_35px_90px_rgba(2,6,23,0.85)]"
             >
@@ -187,16 +192,15 @@ export default function AboutPage() {
             <motion.div
               variants={popIn}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.5 }}
+              animate={isMounted ? "visible" : "hidden"}
               transition={{ ...popInTransition, delay: 0.02 }}
-              className="order-1 md:order-2 space-y-6 drop-shadow-[0_15px_45px_rgba(15,23,42,0.7)]"
+              className="order-1 md:order-2 space-y-4 sm:space-y-6 drop-shadow-[0_15px_45px_rgba(15,23,42,0.7)] text-center sm:text-left"
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
                 About Me
               </p>
               <h2
-                className="text-4xl font-bold tracking-tight text-white sm:text-5xl"
+                className="text-3xl font-bold tracking-tight text-white sm:text-5xl"
                 style={{
                   textShadow:
                     "0 12px 30px rgba(2,6,23,0.75), 0 0 45px rgba(139,92,246,0.4)",
@@ -205,12 +209,12 @@ export default function AboutPage() {
                 Apprentice with a passion for technology and application development.
               </h2>
               <p
-                className="text-lg text-white/80"
+                className="text-base sm:text-lg text-white/80"
                 style={{ textShadow: "0 0 26px rgba(94,234,212,0.25)" }}
               >
                 My name is Samuel Soun and I'm currently in my third year of apprenticeship as an software developer at Swisscom. I discovered my passion for technology early on, which sparked my deep interest in application development. During my apprenticeship, I have the opportunity to expand my technical know-how, deepen my skills in software-based application development, and gain valuable professional experience in a leading company.
               </p>
-              <ul className="space-y-3 text-white/80">
+              <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-white/80">
                 <li>• Third-year software developer apprentice</li>
                 <li>• Berufsschule(BBW) und Berufsmaturitätschule(BMS-W) Winterthur</li>
               </ul>
@@ -220,22 +224,21 @@ export default function AboutPage() {
           <motion.div
             variants={popIn}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            animate={isMounted ? "visible" : "hidden"}
             transition={{ ...popInTransition, delay: 0.2 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-3 sm:gap-4"
           >
             {presenceHighlights.map((highlight) => (
               <div
                 key={highlight.label}
-                className="flex min-w-[260px] flex-1 items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 shadow-[0_18px_40px_rgba(15,23,42,0.35)] backdrop-blur"
+                className="flex w-full sm:min-w-[260px] sm:flex-1 items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 sm:px-5 sm:py-4 shadow-[0_18px_40px_rgba(15,23,42,0.35)] backdrop-blur"
               >
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
                 <div>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-xs sm:text-sm font-semibold text-white">
                     {highlight.label}
                   </p>
-                  <p className="text-xs text-white/70">
+                  <p className="text-[10px] sm:text-xs text-white/70">
                     {highlight.detail}
                   </p>
                 </div>
@@ -247,27 +250,27 @@ export default function AboutPage() {
 
       <motion.section
         id="skills"
-        className="flex min-h-screen items-center px-4 py-16 sm:px-6 sm:py-24 lg:px-12"
+        className="flex min-h-screen items-center px-4 py-12 sm:px-6 sm:py-24 lg:px-12"
         variants={sectionFade}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.15 }}
         transition={sectionTransition}
       >
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 sm:gap-10">
+        <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 sm:gap-10">
           <motion.div
             variants={popIn}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             transition={{ ...popInTransition, delay: 0.1 }}
-            className="space-y-4 text-center"
+            className="space-y-3 sm:space-y-4 text-center"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
               Knowledge
             </p>
             <h2
-              className="text-4xl font-bold text-white sm:text-5xl"
+              className="text-3xl font-bold text-white sm:text-5xl"
               style={{
                 textShadow:
                   "0 12px 30px rgba(2,6,23,0.75), 0 0 45px rgba(59,130,246,0.3)",
@@ -275,7 +278,7 @@ export default function AboutPage() {
             >
               Programming Languages & Technologies
             </h2>
-            <p className="text-lg text-white/80">
+            <p className="text-base sm:text-lg text-white/80">
               Tools, programming languages, and technologies I have dealt with so far
             </p>
           </motion.div>
@@ -286,20 +289,20 @@ export default function AboutPage() {
 
       <motion.section
         id="timeline"
-        className="relative flex min-h-screen items-center overflow-hidden px-4 py-16 sm:px-6 sm:py-24 lg:px-12"
+        className="relative flex min-h-screen items-center overflow-hidden px-4 py-12 sm:px-6 sm:py-24 lg:px-12"
         variants={sectionFade}
         initial="hidden"
         whileInView="visible"
         viewport={sectionViewport}
         transition={sectionTransition}
       >
-        <div className="mx-auto max-w-5xl space-y-12">
-          <BlurFade delay={0.15} inView className="space-y-4 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/60 drop-shadow-[0_8px_30px_rgba(59,130,246,0.4)]">
+        <div className="mx-auto max-w-5xl space-y-8 sm:space-y-12">
+          <BlurFade delay={0.15} inView className="space-y-3 sm:space-y-4 text-center">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-white/60 drop-shadow-[0_8px_30px_rgba(59,130,246,0.4)]">
               Experience 
             </p>
             <h2
-              className="text-4xl font-bold text-white sm:text-5xl"
+              className="text-3xl font-bold text-white sm:text-5xl"
               style={{
                 textShadow:
                   "0 12px 35px rgba(2,6,23,0.75), 0 0 55px rgba(14,165,233,0.35)",
@@ -308,7 +311,7 @@ export default function AboutPage() {
               Projects @ Swisscom
             </h2>
             <p
-              className="text-lg text-white/80"
+              className="text-base sm:text-lg text-white/80"
               style={{ textShadow: "0 0 24px rgba(248,250,252,0.25)" }}
             >
               A simple overview of the milestones of my career at Swisscom
