@@ -115,14 +115,14 @@ const presenceHighlights = [
 
 export default function HomePage() {
   const popIn = {
-    hidden: { opacity: 0, y: 24, scale: 0.985 },
+    hidden: { opacity: 0, y: 12, scale: 0.99 },
     visible: { opacity: 1, y: 0, scale: 1 },
   };
   const popInTransition: Transition = {
     type: "spring",
-    stiffness: 140,
-    damping: 18,
-    mass: 0.9,
+    stiffness: 100,
+    damping: 20,
+    mass: 1,
   };
 
   const handleScrollTo = React.useCallback((sectionId: string) => {
@@ -138,12 +138,12 @@ export default function HomePage() {
   }, []);
 
   const sectionFade = {
-    hidden: { opacity: 0, y: 32 },
+    hidden: { opacity: 0, y: 16 },
     visible: { opacity: 1, y: 0 },
   };
-  const sectionViewport = { once: false, amount: 0.3 };
+  const sectionViewport = { once: false, amount: 0.2 };
 
-  const sectionTransition: Transition = { duration: 0.75, ease: "easeOut" };
+  const sectionTransition: Transition = { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] };
 
   return (
     <main className="flex min-h-screen flex-col overscroll-none md:snap-y md:snap-mandatory">
@@ -275,8 +275,8 @@ export default function HomePage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.5 }}
-              transition={{ ...popInTransition, delay: 0.02 }}
-              className="relative isolate overflow-hidden rounded-3xl shadow-[0_35px_90px_rgba(2,6,23,0.85)]"
+              transition={{ ...popInTransition, delay: 0.12 }}
+              className="order-2 md:order-1 relative isolate overflow-hidden rounded-3xl shadow-[0_35px_90px_rgba(2,6,23,0.85)]"
             >
               <div 
                 className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl"
@@ -297,8 +297,8 @@ export default function HomePage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.5 }}
-              transition={{ ...popInTransition, delay: 0.12 }}
-              className="space-y-6 drop-shadow-[0_15px_45px_rgba(15,23,42,0.7)]"
+              transition={{ ...popInTransition, delay: 0.02 }}
+              className="order-1 md:order-2 space-y-6 drop-shadow-[0_15px_45px_rgba(15,23,42,0.7)]"
             >
               <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
                 About Me
@@ -359,7 +359,7 @@ export default function HomePage() {
         variants={sectionFade}
         initial="hidden"
         whileInView="visible"
-        viewport={sectionViewport}
+        viewport={{ once: false, amount: 0.15 }}
         transition={sectionTransition}
       >
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 sm:gap-10">
@@ -367,8 +367,8 @@ export default function HomePage() {
             variants={popIn}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ ...popInTransition, delay: 0.1 }}
             className="space-y-4 text-center"
           >
             <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
