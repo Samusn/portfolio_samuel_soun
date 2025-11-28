@@ -54,7 +54,7 @@ export function ContactSidebar({
             href={social.href}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm font-medium text-white/70 transition hover:translate-x-1 hover:text-white hover:border-white/40 backdrop-blur"
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur transition-all duration-300 hover:text-white hover:border-white/40 hover:bg-white/10 hover:shadow-[0_4px_12px_rgba(255,255,255,0.15)] hover:scale-105 max-w-fit"
           >
             {social.icon}
             <span>{social.label}</span>

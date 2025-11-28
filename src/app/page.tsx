@@ -3,7 +3,8 @@
 import { BlogSection } from "@/components/sections/home/blog";
 import { HeroSection } from "@/components/sections/home/hero";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { blogPosts, socialLinks } from "@/data/home";
+import { blogPosts } from "@/data/blog";
+import { socialLinks } from "@/data/home";
 import type { Transition, Variants } from "framer-motion";
 import * as React from "react";
 

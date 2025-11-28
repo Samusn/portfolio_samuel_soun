@@ -1,7 +1,7 @@
 "use client";
 
 import { BlurFade } from "@/components/ui/blur-fade";
-import type { BlogPost } from "@/data/home";
+import type { BlogPost } from "@/data/blog";
 import { motion, type Transition, type Variants } from "framer-motion";
 import Image from "next/image";
 
