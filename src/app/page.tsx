@@ -146,7 +146,7 @@ export default function HomePage() {
             initial="hidden"
             animate={isMounted ? "visible" : "hidden"}
             transition={{ ...popInTransition, delay: 0.08 }}
-            className="flex flex-nowrap items-center justify-center gap-2.5 w-full px-4 sm:gap-3 sm:px-0"
+            className="grid w-full max-w-lg grid-cols-4 gap-2 px-4 sm:flex sm:max-w-none sm:flex-nowrap sm:justify-center sm:gap-3 sm:px-0"
           >
             {socialLinks.map((social) => (
               <a
@@ -154,10 +154,13 @@ export default function HomePage() {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-white/20 bg-white/10 px-3 py-2.5 text-xs font-medium text-white backdrop-blur-md transition-all duration-200 hover:text-white hover:border-white/40 hover:bg-white/20 hover:shadow-[0_4px_12px_rgba(255,255,255,0.2)] active:scale-[0.95] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm"
+                className="group relative inline-flex items-center justify-center gap-1 rounded-2xl border border-white/15 bg-white/10 px-2.5 py-2 text-[11px] font-medium uppercase tracking-wide text-white/80 backdrop-blur transition-all duration-300 hover:border-white/40 hover:bg-white/20 hover:text-white hover:shadow-[0_8px_20px_rgba(255,255,255,0.15)] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs"
               >
-                {social.icon}
-                <span className="hidden sm:inline">{social.label}</span>
+                <span className="relative z-10 flex items-center gap-1 sm:gap-2">
+                  {social.icon}
+                  <span className="hidden sm:inline">{social.label}</span>
+                </span>
+                <span className="pointer-events-none absolute inset-0 rounded-2xl bg-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </a>
             ))}
           </motion.div>
@@ -168,19 +171,19 @@ export default function HomePage() {
             transition={{ ...popInTransition, delay: 0.12 }}
             className="w-full"
           >
-            <div className="flex flex-col sm:flex-row justify-center gap-3 w-full sm:w-auto px-4 sm:px-0">
-              <Link
-                href="/me"
-                className="group w-full sm:w-auto rounded-xl border-2 border-white/30 bg-gradient-to-r from-white/15 to-white/10 px-6 py-3.5 text-sm sm:text-base font-semibold uppercase tracking-wide text-white backdrop-blur-md transition-all duration-200 hover:from-white/25 hover:to-white/20 hover:border-white/50 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black text-center"
-              >
-                More About Me
+            <div className="flex w-full flex-col justify-center gap-3 px-4 sm:w-auto sm:flex-row sm:px-0">
+              <Link href="/me" className="w-full sm:w-auto">
+                <span className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-white/10 bg-white/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-slate-950 shadow-[0_18px_45px_rgba(2,6,23,0.55)] transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_22px_55px_rgba(2,6,23,0.65)] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white sm:text-base">
+                  <span className="relative z-10">More About Me</span>
+                </span>
               </Link>
               <button
                 type="button"
                 onClick={() => handleScrollTo("blog")}
-                className="group w-full sm:w-auto rounded-xl border-2 border-indigo-400/40 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 px-6 py-3.5 text-sm sm:text-base font-semibold uppercase tracking-wide text-white backdrop-blur-md transition-all duration-200 hover:from-indigo-500/30 hover:to-purple-500/30 hover:border-indigo-400/60 hover:shadow-[0_0_30px_rgba(129,140,248,0.4)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black text-center"
+                className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-indigo-400/60 bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_20px_50px_rgba(69,51,199,0.55)] transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_25px_60px_rgba(69,51,199,0.65)] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-300 sm:w-auto sm:text-base"
               >
-                Blog
+                <span className="relative z-10">Blog</span>
+                <span className="pointer-events-none absolute inset-0 rounded-2xl border border-white/20 opacity-0 transition-opacity duration-250 group-hover:opacity-100" />
               </button>
             </div>
           </motion.div>
