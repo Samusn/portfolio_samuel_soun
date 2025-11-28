@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export function SiteFooter() {
   return (
     <footer className="border-t border-white/10 bg-black/70 px-4 py-6 text-xs text-white/60 sm:px-6 lg:px-12">
