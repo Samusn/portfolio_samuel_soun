@@ -267,7 +267,7 @@ export default function AboutPage() {
             className="space-y-3 sm:space-y-4 text-center"
           >
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
-              Knowledge
+              Competencies
             </p>
             <h2
               className="text-3xl font-bold text-white sm:text-5xl"
