@@ -90,16 +90,38 @@ function BlogCard({ post, index }: BlogCardProps) {
         </p>
         <div className="space-y-2 sm:space-y-3">
           <h3 className="text-xl font-semibold text-white sm:text-2xl">{post.title}</h3>
+          {post.tag && (
+            <p
+              className="text-sm font-semibold text-blue-400 sm:text-base"
+              style={{
+                textShadow: "0 0 20px rgba(96,165,250,0.6), 0 0 40px rgba(96,165,250,0.3)",
+              }}
+            >
+              {post.tag}
+            </p>
+          )}
           <p className="text-sm text-white/75 sm:text-base">{post.excerpt}</p>
         </div>
         <div className="mt-auto">
-          <button
-            type="button"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white/80 transition hover:border-white hover:text-white sm:text-sm"
-          >
-            Read story
-            <span aria-hidden>↗</span>
-          </button>
+          {post.link ? (
+            <a
+              href={post.link}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white/80 transition hover:border-white hover:text-white sm:text-sm"
+            >
+              {post.linkLabel || "Read story"}
+              <span aria-hidden>↗</span>
+            </a>
+          ) : (
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white/80 transition hover:border-white hover:text-white sm:text-sm"
+            >
+              {post.linkLabel || "Read story"}
+              <span aria-hidden>↗</span>
+            </button>
+          )}
         </div>
       </div>
     </article>
