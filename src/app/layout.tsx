@@ -27,15 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-x-hidden bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-x-hidden bg-white text-slate-900`}
       >
         {/* Globaler Checkerboard Background mit vertikalem Verlauf */}
         <BGPattern
           variant="checkerboard"
           mask="fade-y"         // vertikaler Verlauf von oben nach unten
-          fill="#1a1a1a"        // dunkelgraue Quadrate
+          fill="#e5e7eb"        // hellgraue Quadrate
           size={24}
-          className="pointer-events-none opacity-50"
+          className="pointer-events-none opacity-30"
         />
 
         {/* Page Content */}

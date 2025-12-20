@@ -29,22 +29,19 @@ export function TimelineSection({
       transition={sectionTransition}
     >
       <div className="mx-auto max-w-5xl space-y-8 sm:space-y-12">
-        <BlurFade delay={0.15} inView className="space-y-3 sm:space-y-4 text-center">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-white/60 drop-shadow-[0_8px_30px_rgba(59,130,246,0.4)]">
+        <BlurFade delay={0.15} inView className="space-y-3 sm:space-y-4 text-left md:text-center">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
             Experience
           </p>
           <h2
-            className="text-3xl font-bold text-white sm:text-5xl"
+            className="text-3xl font-bold text-slate-900 sm:text-5xl"
             style={{
-              textShadow: "0 12px 35px rgba(2,6,23,0.75), 0 0 55px rgba(14,165,233,0.35)",
+              textShadow: "0 4px 12px rgba(15,23,42,0.1), 0 0 25px rgba(59,130,246,0.15)",
             }}
           >
             Projects @ Swisscom
           </h2>
-          <p
-            className="text-base sm:text-lg text-white/80"
-            style={{ textShadow: "0 0 24px rgba(248,250,252,0.25)" }}
-          >
+          <p className="text-base sm:text-lg text-slate-700">
             A simple overview of the milestones of my career at Swisscom
           </p>
         </BlurFade>

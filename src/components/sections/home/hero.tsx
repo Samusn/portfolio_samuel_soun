@@ -73,17 +73,17 @@ function HeroIntro({ popIn, popInTransition, isMounted }: MotionBlockProps) {
       initial="hidden"
       animate={isMounted ? "visible" : "hidden"}
       transition={{ ...popInTransition, delay: 0.05 }}
-      className="flex w-full flex-col items-center gap-1.5 px-4 text-center sm:w-auto sm:items-start sm:px-0 sm:text-left"
+      className="flex w-full flex-col items-center gap-1.5 px-4 text-center sm:w-auto sm:items-start sm:px-0 sm:text-left md:text-left"
     >
       <span
-        className="w-full text-5xl font-semibold tracking-tighter text-white sm:w-auto sm:text-6xl xl:text-7xl/none"
+        className="w-full text-5xl font-semibold tracking-tighter text-slate-900 sm:w-auto sm:text-6xl xl:text-7xl/none"
         style={{
-          textShadow: "0 15px 35px rgba(2,6,23,0.75), 0 0 55px rgba(180,198,252,0.45)",
+          textShadow: "0 4px 12px rgba(15,23,42,0.15), 0 0 30px rgba(59,130,246,0.2)",
         }}
       >
         Samuel Soun
       </span>
-      <span className="text-lg text-white/80 sm:text-2xl">Software Developer</span>
+      <span className="text-lg text-slate-700 sm:text-2xl">Software Developer</span>
     </motion.div>
   );
 }
@@ -112,13 +112,13 @@ function HeroSocialLinks({
           href={social.href}
           target="_blank"
           rel="noreferrer"
-          className="group relative inline-flex items-center justify-center gap-1 rounded-2xl border border-white/15 bg-white/10 px-2.5 py-2 text-[11px] font-medium uppercase tracking-wide text-white/80 backdrop-blur transition-all duration-300 hover:border-white/40 hover:bg-white/20 hover:text-white hover:shadow-[0_8px_20px_rgba(255,255,255,0.15)] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs"
+          className="group relative inline-flex items-center justify-center gap-1 rounded-2xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-[11px] font-medium uppercase tracking-wide text-slate-700 backdrop-blur transition-all duration-300 active:border-slate-300 active:bg-slate-100 active:text-slate-900 active:shadow-[0_8px_20px_rgba(15,23,42,0.1)] active:scale-95 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs md:hover:border-slate-300 md:hover:bg-slate-100 md:hover:text-slate-900 md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.1)] md:hover:scale-105 md:active:scale-100"
         >
           <span className="relative z-10 flex items-center gap-1 sm:gap-2">
             {social.icon}
             <span className="hidden sm:inline">{social.label}</span>
           </span>
-          <span className="pointer-events-none absolute inset-0 rounded-2xl bg-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <span className="pointer-events-none absolute inset-0 rounded-2xl bg-slate-100/50 opacity-0 transition-opacity duration-300 md:group-hover:opacity-100" />
         </a>
       ))}
     </motion.div>
@@ -140,17 +140,17 @@ function HeroActions({ popIn, popInTransition, isMounted, onScrollTo }: HeroActi
     >
       <div className="flex w-full flex-col justify-center gap-3 px-4 sm:w-auto sm:flex-row sm:px-0">
         <Link href="/me" className="w-full sm:w-auto">
-          <span className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-white/10 bg-white/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-slate-950 shadow-[0_18px_45px_rgba(2,6,23,0.55)] transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_22px_55px_rgba(2,6,23,0.65)] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white sm:text-base">
+          <span className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-slate-200 bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_rgba(15,23,42,0.2)] transition-all duration-250 active:scale-95 active:shadow-[0_4px_12px_rgba(15,23,42,0.2)] active:bg-slate-800 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_30px_rgba(15,23,42,0.3)] md:hover:bg-slate-800 md:active:translate-y-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-slate-300 sm:text-base">
             <span className="relative z-10">More About Me</span>
           </span>
         </Link>
         <button
           type="button"
           onClick={() => onScrollTo("blog")}
-          className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-indigo-400/60 bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_20px_50px_rgba(69,51,199,0.55)] transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_25px_60px_rgba(69,51,199,0.65)] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-300 sm:w-auto sm:text-base"
+          className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-blue-300/60 bg-gradient-to-r from-sky-400 via-blue-500 to-blue-600 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_25px_rgba(37,99,235,0.3)] transition-all duration-250 active:scale-95 active:shadow-[0_4px_15px_rgba(37,99,235,0.3)] md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_35px_rgba(37,99,235,0.4)] md:hover:from-sky-300 md:hover:via-blue-400 md:hover:to-blue-500 md:active:translate-y-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-300 sm:w-auto sm:text-base"
         >
           <span className="relative z-10">Blog</span>
-          <span className="pointer-events-none absolute inset-0 rounded-2xl border border-white/20 opacity-0 transition-opacity duration-250 group-hover:opacity-100" />
+          <span className="pointer-events-none absolute inset-0 rounded-2xl border border-white/30 opacity-0 transition-opacity duration-250 md:group-hover:opacity-100" />
         </button>
       </div>
     </motion.div>
