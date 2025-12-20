@@ -29,16 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-x-hidden bg-white text-slate-900`}
       >
-        {/* Globaler Checkerboard Background mit vertikalem Verlauf */}
         <BGPattern
           variant="checkerboard"
-          mask="fade-y"         // vertikaler Verlauf von oben nach unten
-          fill="#e5e7eb"        // hellgraue Quadrate
+          mask="fade-y"
+          fill="#e5e7eb"
           size={24}
           className="pointer-events-none opacity-30"
         />
-
-        {/* Page Content */}
         <div className="relative z-10">
           {children}
         </div>
