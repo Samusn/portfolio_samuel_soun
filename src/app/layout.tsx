@@ -15,8 +15,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Samuel Soun · Portfolio",
-  description:
-    "Portfolio of Samuel Soun, a software developer crafting cinematic, high-performance experiences.",
 };
 
 export default function RootLayout({
