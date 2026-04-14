@@ -76,14 +76,14 @@ function HeroIntro({ popIn, popInTransition, isMounted }: MotionBlockProps) {
       className="flex w-full flex-col items-center gap-1.5 px-4 text-center sm:w-auto sm:items-start sm:px-0 sm:text-left md:text-left"
     >
       <span
-        className="w-full text-5xl font-semibold tracking-tighter text-slate-900 sm:w-auto sm:text-6xl xl:text-7xl/none"
+        className="w-full text-5xl font-semibold tracking-tighter text-slate-900 sm:w-auto sm:text-6xl xl:text-7xl/none dark:text-white"
         style={{
           textShadow: "0 4px 12px rgba(15,23,42,0.15), 0 0 30px rgba(59,130,246,0.2)",
         }}
       >
         Samuel Soun
       </span>
-      <span className="text-lg text-slate-700 sm:text-2xl">Software Developer</span>
+      <span className="text-lg text-slate-700 sm:text-2xl dark:text-slate-300">Software Developer</span>
     </motion.div>
   );
 }
@@ -112,7 +112,7 @@ function HeroSocialLinks({
           href={social.href}
           target="_blank"
           rel="noreferrer"
-          className="group relative inline-flex items-center justify-center gap-1 rounded-2xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-[11px] font-medium uppercase tracking-wide text-slate-700 backdrop-blur transition-all duration-300 active:border-slate-300 active:bg-slate-100 active:text-slate-900 active:shadow-[0_8px_20px_rgba(15,23,42,0.1)] active:scale-95 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs md:hover:border-slate-300 md:hover:bg-slate-100 md:hover:text-slate-900 md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.1)] md:hover:scale-105 md:active:scale-100"
+          className="group relative inline-flex items-center justify-center gap-1 rounded-2xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-[11px] font-medium uppercase tracking-wide text-slate-700 backdrop-blur transition-all duration-300 active:border-slate-300 active:bg-slate-100 active:text-slate-900 active:shadow-[0_8px_20px_rgba(15,23,42,0.1)] active:scale-95 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs md:hover:border-slate-300 md:hover:bg-slate-100 md:hover:text-slate-900 md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.1)] md:hover:scale-105 md:active:scale-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:active:border-slate-600 dark:active:bg-slate-700 dark:md:hover:border-slate-600 dark:md:hover:bg-slate-700 dark:md:hover:text-white"
         >
           <span className="relative z-10 flex items-center gap-1 sm:gap-2">
             {social.icon}
@@ -142,7 +142,7 @@ function HeroActions({ popIn, popInTransition, isMounted, onScrollTo }: HeroActi
         <button
           type="button"
           onClick={() => onScrollTo("about")}
-          className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-slate-200 bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_rgba(15,23,42,0.2)] transition-all duration-250 active:scale-95 active:shadow-[0_4px_12px_rgba(15,23,42,0.2)] active:bg-slate-800 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_30px_rgba(15,23,42,0.3)] md:hover:bg-slate-800 md:active:translate-y-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-slate-300 sm:text-base sm:w-auto"
+          className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-slate-200 bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_rgba(15,23,42,0.2)] transition-all duration-250 active:scale-95 active:shadow-[0_4px_12px_rgba(15,23,42,0.2)] active:bg-slate-800 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_30px_rgba(15,23,42,0.3)] md:hover:bg-slate-800 md:active:translate-y-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-slate-300 sm:text-base sm:w-auto dark:border-slate-600 dark:bg-white dark:text-slate-900 dark:md:hover:bg-slate-100 dark:active:bg-slate-200"
         >
           <span className="relative z-10">More About Me</span>
         </button>

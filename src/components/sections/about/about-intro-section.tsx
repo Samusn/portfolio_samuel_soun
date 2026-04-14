@@ -58,18 +58,18 @@ export function AboutIntroSection({
             transition={{ ...popInTransition, delay: 0.02 }}
             className="order-1 md:order-2 space-y-4 sm:space-y-6 text-left md:text-left"
           >
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
               About Me
             </p>
             <h2
-              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl"
+              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl dark:text-white"
               style={{
                 textShadow: "0 4px 12px rgba(15,23,42,0.1), 0 0 25px rgba(59,130,246,0.15)",
               }}
             >
               Apprentice with a passion for technology and application development.
             </h2>
-            <p className="text-base sm:text-lg text-slate-700">
+            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300">
               My name is Samuel Soun and I'm currently in my third year of apprenticeship as an
               software developer at Swisscom. I discovered my passion for technology early on, which
               sparked my deep interest in application development. During my apprenticeship, I have
@@ -77,7 +77,7 @@ export function AboutIntroSection({
               application development, and gain valuable professional experience in a leading
               company.
             </p>
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-700">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-700 dark:text-slate-300">
               <li>• Third-year software developer apprentice</li>
               <li>• Berufsschule(BBW) und Berufsmaturitätschule(BMS-W) Winterthur</li>
             </ul>
@@ -94,12 +94,12 @@ export function AboutIntroSection({
           {presenceHighlights.map((highlight) => (
             <div
               key={highlight.label}
-              className="flex w-full sm:min-w-[260px] sm:flex-1 items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 sm:px-5 sm:py-4 shadow-[0_4px_12px_rgba(15,23,42,0.08)] backdrop-blur active:shadow-[0_2px_8px_rgba(15,23,42,0.08)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] transition-shadow duration-300"
+              className="flex w-full sm:min-w-[260px] sm:flex-1 items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 sm:px-5 sm:py-4 shadow-[0_4px_12px_rgba(15,23,42,0.08)] backdrop-blur active:shadow-[0_2px_8px_rgba(15,23,42,0.08)] md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] transition-shadow duration-300 dark:border-slate-700 dark:bg-slate-800"
             >
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
               <div>
-                <p className="text-xs sm:text-sm font-semibold text-slate-900">{highlight.label}</p>
-                <p className="text-[10px] sm:text-xs text-slate-600">{highlight.detail}</p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">{highlight.label}</p>
+                <p className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400">{highlight.detail}</p>
               </div>
             </div>
           ))}

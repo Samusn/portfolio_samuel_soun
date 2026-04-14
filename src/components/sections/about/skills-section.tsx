@@ -35,18 +35,18 @@ export function SkillsSection({
           transition={{ ...popInTransition, delay: 0.1 }}
           className="space-y-3 sm:space-y-4 text-left md:text-center"
         >
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
             Competencies
           </p>
           <h2
-            className="text-3xl font-bold text-slate-900 sm:text-5xl"
+            className="text-3xl font-bold text-slate-900 sm:text-5xl dark:text-white"
             style={{
               textShadow: "0 4px 12px rgba(15,23,42,0.1), 0 0 25px rgba(59,130,246,0.15)",
             }}
           >
             Programming Languages & Technologies
           </h2>
-          <p className="text-base sm:text-lg text-slate-700">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300">
             Tools, programming languages, and technologies I have dealt with so far
           </p>
         </motion.div>

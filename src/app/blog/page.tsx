@@ -3,7 +3,9 @@
 import { BlogSection } from "@/components/sections/home/blog";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { blogPosts } from "@/data/blog";
+import { IconArrowLeft } from "@tabler/icons-react";
 import type { Transition, Variants } from "framer-motion";
+import Link from "next/link";
 import * as React from "react";
 
 export default function BlogPage() {
@@ -21,12 +23,24 @@ export default function BlogPage() {
 
   return (
     <main className="flex min-h-screen flex-col">
-      <BlogSection
-        blogPosts={blogPosts}
-        sectionFade={sectionFade}
-        sectionTransition={sectionTransition}
-        isMounted={isMounted}
-      />
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center px-4 py-4 sm:px-6">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur transition-all duration-200 active:scale-95 md:hover:border-slate-300 md:hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-300 dark:md:hover:border-slate-600 dark:md:hover:bg-slate-700"
+        >
+          <IconArrowLeft size={16} />
+          Portfolio
+        </Link>
+      </nav>
+
+      <div className="pt-16">
+        <BlogSection
+          blogPosts={blogPosts}
+          sectionFade={sectionFade}
+          sectionTransition={sectionTransition}
+          isMounted={isMounted}
+        />
+      </div>
 
       <SiteFooter />
     </main>
