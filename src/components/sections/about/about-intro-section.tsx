@@ -3,6 +3,7 @@
 import type { PresenceHighlight } from "@/data/about";
 import { motion, type Transition, type Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 type AboutIntroSectionProps = {
   popIn: Variants;
@@ -11,6 +12,9 @@ type AboutIntroSectionProps = {
   sectionTransition: Transition;
   isMounted: boolean;
   presenceHighlights: PresenceHighlight[];
+  heading?: string;
+  description?: string;
+  switchLink?: { href: string; label: string };
 };
 
 export function AboutIntroSection({
@@ -20,6 +24,9 @@ export function AboutIntroSection({
   sectionTransition,
   isMounted,
   presenceHighlights,
+  heading = "Apprentice with a passion for technology and application development.",
+  description = "My name is Samuel Soun and I'm currently in my third year of apprenticeship as an software developer at Swisscom. I discovered my passion for technology early on, which sparked my deep interest in application development. During my apprenticeship, I have the opportunity to expand my technical know-how, deepen my skills in software-based application development, and gain valuable professional experience in a leading company.",
+  switchLink,
 }: AboutIntroSectionProps) {
   return (
     <motion.section
@@ -67,20 +74,11 @@ export function AboutIntroSection({
                 textShadow: "0 4px 12px rgba(15,23,42,0.1), 0 0 25px rgba(59,130,246,0.15)",
               }}
             >
-              Apprentice with a passion for technology and application development.
+              {heading}
             </h2>
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300">
-              My name is Samuel Soun and I'm currently in my third year of apprenticeship as an
-              software developer at Swisscom. I discovered my passion for technology early on, which
-              sparked my deep interest in application development. During my apprenticeship, I have
-              the opportunity to expand my technical know-how, deepen my skills in software-based
-              application development, and gain valuable professional experience in a leading
-              company.
+              {description}
             </p>
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-700 dark:text-slate-300">
-              <li>• Third-year software developer apprentice</li>
-              <li>• Berufsschule(BBW) und Berufsmaturitätschule(BMS-W) Winterthur</li>
-            </ul>
           </motion.div>
         </div>
 
@@ -103,6 +101,14 @@ export function AboutIntroSection({
               </div>
             </div>
           ))}
+          {switchLink && (
+            <Link
+              href={switchLink.href}
+              className="flex w-full sm:min-w-[260px] sm:flex-1 items-center justify-center gap-2 rounded-2xl border border-dashed border-slate-300 bg-transparent px-4 py-3 sm:px-5 sm:py-4 text-xs sm:text-sm font-medium text-slate-500 transition-all duration-300 active:bg-slate-50 active:text-slate-700 md:hover:border-slate-400 md:hover:bg-slate-50 md:hover:text-slate-700 dark:border-slate-600 dark:text-slate-400 dark:md:hover:border-slate-500 dark:md:hover:bg-slate-800 dark:md:hover:text-slate-300"
+            >
+              {switchLink.label}
+            </Link>
+          )}
         </motion.div>
       </div>
     </motion.section>

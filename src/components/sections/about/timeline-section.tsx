@@ -10,6 +10,8 @@ type TimelineSectionProps = {
   sectionFade: Variants;
   sectionTransition: Transition;
   sectionViewport: { once: boolean; amount: number };
+  title?: string;
+  description?: string;
 };
 
 export function TimelineSection({
@@ -17,6 +19,8 @@ export function TimelineSection({
   sectionFade,
   sectionTransition,
   sectionViewport,
+  title = "Projects @ Swisscom",
+  description = "A simple overview of the milestones of my career at Swisscom",
 }: TimelineSectionProps) {
   return (
     <motion.section
@@ -39,10 +43,10 @@ export function TimelineSection({
               textShadow: "0 4px 12px rgba(15,23,42,0.1), 0 0 25px rgba(59,130,246,0.15)",
             }}
           >
-            Projects @ Swisscom
+            {title}
           </h2>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300">
-            A simple overview of the milestones of my career at Swisscom
+            {description}
           </p>
         </BlurFade>
 

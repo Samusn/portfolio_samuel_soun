@@ -86,12 +86,8 @@ export const presenceHighlights: PresenceHighlight[] = [
     detail: "Informatiker EFZ · Applikationsentwicklung",
   },
   {
-    label: "FDP Suhr",
-    detail: "Vorstandsmitglied · Protokollführer",
-  },
-  {
-    label: "Jungfreisinnige Schweiz",
-    detail: "Mitglied",
+    label: "BBW & BMS-W Winterthur",
+    detail: "Berufsschule · Berufsmaturitätschule",
   },
 ];
 

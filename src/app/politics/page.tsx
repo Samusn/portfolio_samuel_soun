@@ -2,15 +2,21 @@
 
 import { HeroSection } from "@/components/sections/home/hero";
 import { AboutIntroSection } from "@/components/sections/about/about-intro-section";
-import { SkillsSection } from "@/components/sections/about/skills-section";
 import { TimelineSection } from "@/components/sections/about/timeline-section";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { presenceHighlights, timelineItems } from "@/data/about";
-import { socialLinks } from "@/data/home";
+import { politicalPresenceHighlights, politicalTimelineItems } from "@/data/political/about";
+import { politicalSocialLinks } from "@/data/political/about";
+import type { SocialLink } from "@/data/home";
 import type { Transition, Variants } from "framer-motion";
 import * as React from "react";
 
-export default function HomePage() {
+const heroSocialLinks: SocialLink[] = politicalSocialLinks.map((link) => ({
+  href: link.href,
+  label: link.label,
+  icon: link.icon,
+}));
+
+export default function PoliticsPage() {
   const popIn: Variants = {
     hidden: { opacity: 0, y: 12, scale: 0.99 },
     visible: { opacity: 1, y: 0, scale: 1 },
@@ -55,8 +61,10 @@ export default function HomePage() {
         popInTransition={popInTransition}
         sectionFade={sectionFade}
         sectionTransition={sectionTransition}
-        socialLinks={socialLinks}
+        socialLinks={heroSocialLinks}
         onScrollTo={handleScrollTo}
+        subtitle="Jung · Bürgerlich · Liberal"
+        blogHref="/politics/blog"
       />
 
       <AboutIntroSection
@@ -65,22 +73,20 @@ export default function HomePage() {
         sectionFade={sectionFade}
         sectionTransition={sectionTransition}
         isMounted={isMounted}
-        presenceHighlights={presenceHighlights}
-        switchLink={{ href: "/politics", label: "Politics Portfolio →" }}
-      />
+        presenceHighlights={politicalPresenceHighlights}
+        heading="Jung, freisinnig und bereit, etwas zu bewegen."
+        description="Mein Name ist Samuel Soun und ich engagiere mich aktiv in der Lokalpolitik der Gemeinde Suhr. Als Mitglied der FDP Suhr und der Jungfreisinnigen Schweiz setze ich mich für liberale Werte, individuelle Freiheit und eine zukunftsorientierte Gesellschaft ein. Im September 2025 wurde ich in das Wahlbüro von Suhr gewählt, mein erster offizieller Schritt in die Lokalpolitik."
 
-      <SkillsSection
-        popIn={popIn}
-        popInTransition={popInTransition}
-        sectionFade={sectionFade}
-        sectionTransition={sectionTransition}
+        switchLink={{ href: "/", label: "← Work Portfolio" }}
       />
 
       <TimelineSection
-        timelineItems={timelineItems}
+        timelineItems={politicalTimelineItems}
         sectionFade={sectionFade}
         sectionTransition={sectionTransition}
         sectionViewport={sectionViewport}
+        title="Politisches Engagement"
+        description="Ein Überblick über mein politisches Engagement auf lokaler und nationaler Ebene"
       />
 
       <SiteFooter />

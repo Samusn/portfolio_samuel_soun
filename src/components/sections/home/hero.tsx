@@ -14,6 +14,8 @@ type HeroSectionProps = {
   sectionTransition: Transition;
   socialLinks: SocialLink[];
   onScrollTo: (sectionId: string) => void;
+  subtitle?: string;
+  blogHref?: string;
 };
 
 export function HeroSection({
@@ -24,6 +26,8 @@ export function HeroSection({
   sectionTransition,
   socialLinks,
   onScrollTo,
+  subtitle = "Software Developer",
+  blogHref = "/blog",
 }: HeroSectionProps) {
   return (
     <motion.section
@@ -40,7 +44,7 @@ export function HeroSection({
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center gap-4 text-center sm:gap-8">
-        <HeroIntro popIn={popIn} popInTransition={popInTransition} isMounted={isMounted} />
+        <HeroIntro popIn={popIn} popInTransition={popInTransition} isMounted={isMounted} subtitle={subtitle} />
 
         <HeroSocialLinks
           popIn={popIn}
@@ -54,6 +58,7 @@ export function HeroSection({
           popInTransition={popInTransition}
           isMounted={isMounted}
           onScrollTo={onScrollTo}
+          blogHref={blogHref}
         />
       </div>
     </motion.section>
@@ -66,7 +71,7 @@ type MotionBlockProps = {
   isMounted: boolean;
 };
 
-function HeroIntro({ popIn, popInTransition, isMounted }: MotionBlockProps) {
+function HeroIntro({ popIn, popInTransition, isMounted, subtitle }: MotionBlockProps & { subtitle: string }) {
   return (
     <motion.div
       variants={popIn}
@@ -83,7 +88,7 @@ function HeroIntro({ popIn, popInTransition, isMounted }: MotionBlockProps) {
       >
         Samuel Soun
       </span>
-      <span className="text-lg text-slate-700 sm:text-2xl dark:text-slate-300">Software Developer</span>
+      <span className="text-lg text-slate-700 sm:text-2xl dark:text-slate-300">{subtitle}</span>
     </motion.div>
   );
 }
@@ -127,9 +132,10 @@ function HeroSocialLinks({
 
 type HeroActionsProps = MotionBlockProps & {
   onScrollTo: (sectionId: string) => void;
+  blogHref: string;
 };
 
-function HeroActions({ popIn, popInTransition, isMounted, onScrollTo }: HeroActionsProps) {
+function HeroActions({ popIn, popInTransition, isMounted, onScrollTo, blogHref }: HeroActionsProps) {
   return (
     <motion.div
       variants={popIn}
@@ -146,7 +152,7 @@ function HeroActions({ popIn, popInTransition, isMounted, onScrollTo }: HeroActi
         >
           <span className="relative z-10">More About Me</span>
         </button>
-        <Link href="/blog" className="w-full sm:w-auto">
+        <Link href={blogHref} className="w-full sm:w-auto">
           <span className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-blue-300/60 bg-gradient-to-r from-sky-400 via-blue-500 to-blue-600 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_25px_rgba(37,99,235,0.3)] transition-all duration-250 active:scale-95 active:shadow-[0_4px_15px_rgba(37,99,235,0.3)] md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_35px_rgba(37,99,235,0.4)] md:hover:from-sky-300 md:hover:via-blue-400 md:hover:to-blue-500 md:active:translate-y-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-300 sm:text-base">
             <span className="relative z-10">Blog</span>
             <span className="pointer-events-none absolute inset-0 rounded-2xl border border-white/30 opacity-0 transition-opacity duration-250 md:group-hover:opacity-100" />

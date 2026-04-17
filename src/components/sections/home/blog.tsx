@@ -10,6 +10,7 @@ type BlogSectionProps = {
   sectionFade: Variants;
   sectionTransition: Transition;
   isMounted: boolean;
+  subtitle?: string;
 };
 
 export function BlogSection({
@@ -17,6 +18,7 @@ export function BlogSection({
   sectionFade,
   sectionTransition,
   isMounted,
+  subtitle,
 }: BlogSectionProps) {
   return (
     <motion.section
@@ -40,7 +42,7 @@ export function BlogSection({
             Blogs & News
           </h2>
           <p className="text-base text-slate-700 sm:text-lg dark:text-slate-300">
-            My thoughts, opinions, and general news that I want to share
+            {subtitle ?? "My thoughts, opinions, and general news that I want to share"}
           </p>
         </BlurFade>
 
