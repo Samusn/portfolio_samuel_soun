@@ -109,7 +109,7 @@ function HeroSocialLinks({
       initial="hidden"
       animate={isMounted ? "visible" : "hidden"}
       transition={{ ...popInTransition, delay: 0.08 }}
-      className="grid w-full max-w-lg grid-cols-4 gap-2 px-4 sm:flex sm:max-w-none sm:flex-nowrap sm:justify-center sm:gap-3 sm:px-0"
+      className="flex w-full max-w-lg flex-wrap justify-center gap-2 px-4 sm:max-w-none sm:flex-nowrap sm:gap-3 sm:px-0"
     >
       {socialLinks.map((social) => (
         <a
