@@ -60,12 +60,7 @@ export default function AboutPage() {
         switchLink={{ href: "/politics", label: "Politics Portfolio →" }}
       />
 
-      <SkillsSection
-        popIn={popIn}
-        popInTransition={popInTransition}
-        sectionFade={sectionFade}
-        sectionTransition={sectionTransition}
-      />
+      <SkillsSection />
 
       <TimelineSection
         timelineItems={timelineItems}
