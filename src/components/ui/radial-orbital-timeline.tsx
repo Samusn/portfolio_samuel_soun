@@ -76,6 +76,8 @@ export default function RadialOrbitalTimeline({
 
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
+  const [mounted, setMounted] = useState<boolean>(false);
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const orbitRef = useRef<HTMLDivElement>(null);
@@ -83,6 +85,8 @@ export default function RadialOrbitalTimeline({
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
   useEffect(() => {
+
+    setMounted(true);
 
     const check = () => setIsMobile(window.innerWidth < 640);
 
@@ -375,7 +379,7 @@ export default function RadialOrbitalTimeline({
 
 
 
-          {timelineData.map((item, index) => {
+          {mounted && timelineData.map((item, index) => {
 
             const position = calculateNodePosition(index, timelineData.length);
 
@@ -521,9 +525,9 @@ export default function RadialOrbitalTimeline({
 
 
 
-                {isExpanded && (
+                {isExpanded && !isMobile && (
 
-                  <Card className={`absolute top-12 left-1/2 -translate-x-1/2 ${isMobile ? "w-48" : "w-80"} bg-card/95 backdrop-blur-lg border-border shadow-xl overflow-visible`}>
+                  <Card className="absolute top-12 left-1/2 -translate-x-1/2 w-80 bg-card/95 backdrop-blur-lg border-border shadow-xl overflow-visible">
 
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-border"></div>
 
@@ -531,41 +535,17 @@ export default function RadialOrbitalTimeline({
 
                       <div className="flex justify-between items-center">
 
-                        <Badge
+                        <Badge className={`px-2 text-xs ${getStatusStyles(item.status)}`}>
 
-                          className={`px-2 text-xs ${getStatusStyles(
-
-                            item.status
-
-                          )}`}
-
-                        >
-
-                          {item.status === "completed"
-
-                            ? "COMPLETE"
-
-                            : item.status === "in-progress"
-
-                            ? "IN PROGRESS"
-
-                            : "PENDING"}
+                          {item.status === "completed" ? "COMPLETE" : item.status === "in-progress" ? "IN PROGRESS" : "PENDING"}
 
                         </Badge>
 
-                        <span className="text-xs font-mono text-muted-foreground">
-
-                          {item.date}
-
-                        </span>
+                        <span className="text-xs font-mono text-muted-foreground">{item.date}</span>
 
                       </div>
 
-                      <CardTitle className="text-sm mt-2">
-
-                        {item.title}
-
-                      </CardTitle>
+                      <CardTitle className="text-sm mt-2">{item.title}</CardTitle>
 
                     </CardHeader>
 
@@ -573,19 +553,11 @@ export default function RadialOrbitalTimeline({
 
                       <p>{item.content}</p>
 
-
-
                       <div className="mt-4 pt-3 border-t border-border">
 
                         <div className="flex justify-between items-center text-xs mb-1">
 
-                          <span className="flex items-center">
-
-                            <Zap size={10} className="mr-1" />
-
-                            Skill Level
-
-                          </span>
+                          <span className="flex items-center"><Zap size={10} className="mr-1" />Skill Level</span>
 
                           <span className="font-mono">{item.energy}%</span>
 
@@ -593,19 +565,11 @@ export default function RadialOrbitalTimeline({
 
                         <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
 
-                          <div
-
-                            className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
-
-                            style={{ width: `${item.energy}%` }}
-
-                          ></div>
+                          <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500" style={{ width: `${item.energy}%` }}></div>
 
                         </div>
 
                       </div>
-
-
 
                       {item.relatedIds.length > 0 && (
 
@@ -615,11 +579,7 @@ export default function RadialOrbitalTimeline({
 
                             <Link size={10} className="text-muted-foreground mr-1" />
 
-                            <h4 className="text-xs uppercase tracking-wider font-medium text-muted-foreground">
-
-                              Connected Skills
-
-                            </h4>
+                            <h4 className="text-xs uppercase tracking-wider font-medium text-muted-foreground">Connected Skills</h4>
 
                           </div>
 
@@ -627,43 +587,19 @@ export default function RadialOrbitalTimeline({
 
                             {item.relatedIds.map((relatedId) => {
 
-                              const relatedItem = timelineData.find(
-
-                                (i) => i.id === relatedId
-
-                              );
+                              const relatedItem = timelineData.find((i) => i.id === relatedId);
 
                               return (
 
-                                <Button
-
-                                  key={relatedId}
-
-                                  variant="outline"
-
-                                  size="sm"
+                                <Button key={relatedId} variant="outline" size="sm"
 
                                   className="flex items-center h-6 px-2 py-0 text-xs rounded-none border-border bg-transparent hover:bg-muted text-foreground/80 hover:text-foreground transition-all"
 
-                                  onClick={(e) => {
-
-                                    e.stopPropagation();
-
-                                    toggleItem(relatedId);
-
-                                  }}
-
-                                >
+                                  onClick={(e) => { e.stopPropagation(); toggleItem(relatedId); }}>
 
                                   {relatedItem?.title}
 
-                                  <ArrowRight
-
-                                    size={8}
-
-                                    className="ml-1 text-muted-foreground"
-
-                                  />
+                                  <ArrowRight size={8} className="ml-1 text-muted-foreground" />
 
                                 </Button>
 
@@ -692,6 +628,132 @@ export default function RadialOrbitalTimeline({
         </div>
 
       </div>
+
+      {isMobile && activeNodeId !== null && (() => {
+
+        const item = timelineData.find((i) => i.id === activeNodeId);
+
+        if (!item) return null;
+
+        return (
+
+          <div
+
+            className="fixed bottom-0 left-0 right-0 z-[500] px-4 pb-6 pt-2"
+
+            onClick={(e) => e.stopPropagation()}
+
+          >
+
+            <Card className="w-full bg-card/98 backdrop-blur-xl border-border shadow-2xl">
+
+              <CardHeader className="pb-2">
+
+                <div className="flex justify-between items-center">
+
+                  <Badge className={`px-2 text-xs ${getStatusStyles(item.status)}`}>
+
+                    {item.status === "completed" ? "COMPLETE" : item.status === "in-progress" ? "IN PROGRESS" : "PENDING"}
+
+                  </Badge>
+
+                  <div className="flex items-center gap-2">
+
+                    <span className="text-xs font-mono text-muted-foreground">{item.date}</span>
+
+                    <button
+
+                      className="text-muted-foreground hover:text-foreground text-lg leading-none"
+
+                      onClick={() => { setExpandedItems({}); setActiveNodeId(null); setAutoRotate(true); setPulseEffect({}); }}
+
+                    >
+
+                      ×
+
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <CardTitle className="text-base mt-2">{item.title}</CardTitle>
+
+              </CardHeader>
+
+              <CardContent className="text-sm text-muted-foreground">
+
+                <p>{item.content}</p>
+
+                <div className="mt-4 pt-3 border-t border-border">
+
+                  <div className="flex justify-between items-center text-xs mb-1">
+
+                    <span className="flex items-center"><Zap size={10} className="mr-1" />Skill Level</span>
+
+                    <span className="font-mono">{item.energy}%</span>
+
+                  </div>
+
+                  <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+
+                    <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500" style={{ width: `${item.energy}%` }}></div>
+
+                  </div>
+
+                </div>
+
+                {item.relatedIds.length > 0 && (
+
+                  <div className="mt-4 pt-3 border-t border-border">
+
+                    <div className="flex items-center mb-2">
+
+                      <Link size={10} className="text-muted-foreground mr-1" />
+
+                      <h4 className="text-xs uppercase tracking-wider font-medium text-muted-foreground">Connected Skills</h4>
+
+                    </div>
+
+                    <div className="flex flex-wrap gap-1">
+
+                      {item.relatedIds.map((relatedId) => {
+
+                        const relatedItem = timelineData.find((i) => i.id === relatedId);
+
+                        return (
+
+                          <Button key={relatedId} variant="outline" size="sm"
+
+                            className="flex items-center h-7 px-2 py-0 text-xs border-border bg-transparent hover:bg-muted text-foreground/80 hover:text-foreground transition-all"
+
+                            onClick={(e) => { e.stopPropagation(); toggleItem(relatedId); }}>
+
+                            {relatedItem?.title}
+
+                            <ArrowRight size={8} className="ml-1 text-muted-foreground" />
+
+                          </Button>
+
+                        );
+
+                      })}
+
+                    </div>
+
+                  </div>
+
+                )}
+
+              </CardContent>
+
+            </Card>
+
+          </div>
+
+        );
+
+      })()}
 
     </div>
 
