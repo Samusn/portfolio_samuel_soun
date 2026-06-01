@@ -10,11 +10,7 @@ import {
   IconDeviceDesktopAnalytics,
   IconGauge,
   IconShieldLock,
-  IconNetwork,
-  IconServer,
-  IconCode,
   IconApi,
-  IconTestPipe,
   IconUsers,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";

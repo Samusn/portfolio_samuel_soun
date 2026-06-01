@@ -56,7 +56,7 @@ export default function RadialOrbitalTimeline({
 
   );
 
-  const [viewMode, setViewMode] = useState<"orbital">("orbital");
+  const [viewMode] = useState<"orbital">("orbital");
 
   const [rotationAngle, setRotationAngle] = useState<number>(0);
 
@@ -64,7 +64,7 @@ export default function RadialOrbitalTimeline({
 
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
 
-  const [centerOffset, setCenterOffset] = useState<{ x: number; y: number }>({
+  const [centerOffset] = useState<{ x: number; y: number }>({
 
     x: 0,
 
@@ -86,6 +86,7 @@ export default function RadialOrbitalTimeline({
 
   useEffect(() => {
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
 
     const check = () => setIsMobile(window.innerWidth < 640);
