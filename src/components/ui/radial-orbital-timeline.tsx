@@ -28,7 +28,7 @@ interface TimelineItem {
 
   relatedIds: number[];
 
-  status: "completed" | "in-progress" | "pending";
+  status?: "completed" | "in-progress" | "pending";
 
   energy: number;
 
@@ -536,12 +536,6 @@ export default function RadialOrbitalTimeline({
 
                       <div className="flex justify-between items-center">
 
-                        <Badge className={`px-2 text-xs ${getStatusStyles(item.status)}`}>
-
-                          {item.status === "completed" ? "COMPLETE" : item.status === "in-progress" ? "IN PROGRESS" : "PENDING"}
-
-                        </Badge>
-
                         <span className="text-xs font-mono text-muted-foreground">{item.date}</span>
 
                       </div>
@@ -651,12 +645,6 @@ export default function RadialOrbitalTimeline({
               <CardHeader className="pb-2">
 
                 <div className="flex justify-between items-center">
-
-                  <Badge className={`px-2 text-xs ${getStatusStyles(item.status)}`}>
-
-                    {item.status === "completed" ? "COMPLETE" : item.status === "in-progress" ? "IN PROGRESS" : "PENDING"}
-
-                  </Badge>
 
                   <div className="flex items-center gap-2">
 

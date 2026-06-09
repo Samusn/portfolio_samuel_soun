@@ -55,13 +55,12 @@ const skillsData = [
     id: 4,
     title: "Java",
     date: "seit 2023",
-    content:
-      "Enterprise backend development and REST service implementation. Used at Swisscom for KeyCom and orchestration tooling.",
+    content: "Enterprise backend development and REST service implementation.",
     category: "Language",
     icon: Coffee,
     relatedIds: [7, 3],
-    status: "completed" as const,
-    energy: 75,
+    status: "in-progress" as const,
+    energy: 60,
   },
   {
     id: 5,
@@ -139,7 +138,10 @@ const skillsData = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="flex flex-col items-center py-4 sm:py-10 min-h-[60vh] sm:min-h-screen">
+    <section
+      id="skills"
+      className="flex flex-col items-center py-4 sm:py-10 min-h-[60vh] sm:min-h-screen"
+    >
       <div className="mx-auto w-full max-w-5xl space-y-3 px-4 text-left sm:space-y-4 sm:px-6 md:text-center lg:px-12">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 sm:text-sm dark:text-slate-400">
           Competencies
@@ -147,13 +149,15 @@ export function SkillsSection() {
         <h2
           className="text-3xl font-bold text-slate-900 sm:text-5xl dark:text-white"
           style={{
-            textShadow: "0 4px 12px rgba(15,23,42,0.1), 0 0 25px rgba(59,130,246,0.15)",
+            textShadow:
+              "0 4px 12px rgba(15,23,42,0.1), 0 0 25px rgba(59,130,246,0.15)",
           }}
         >
           Programming Languages & Technologies
         </h2>
         <p className="text-base text-slate-700 sm:text-lg dark:text-slate-300">
-          Tools, programming languages, and technologies I have dealt with so far
+          Tools, programming languages, and technologies I have dealt with so
+          far
         </p>
       </div>
       <RadialOrbitalTimeline timelineData={skillsData} />
