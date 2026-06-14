@@ -187,37 +187,23 @@ export default function RadialOrbitalTimeline({
 
   useEffect(() => {
 
-    let rotationTimer: NodeJS.Timeout;
+    if (!autoRotate || viewMode !== "orbital") return;
 
+    let rafId: number;
+    let lastTime: number | null = null;
 
-
-    if (autoRotate && viewMode === "orbital") {
-
-      rotationTimer = setInterval(() => {
-
-        setRotationAngle((prev) => {
-
-          const newAngle = (prev + 0.3) % 360;
-
-          return Number(newAngle.toFixed(3));
-
-        });
-
-      }, 50);
-
-    }
-
-
-
-    return () => {
-
-      if (rotationTimer) {
-
-        clearInterval(rotationTimer);
-
+    const step = (timestamp: number) => {
+      if (lastTime !== null) {
+        const delta = timestamp - lastTime;
+        setRotationAngle((prev) => Number(((prev + 0.3 * delta / 50) % 360).toFixed(3)));
       }
-
+      lastTime = timestamp;
+      rafId = requestAnimationFrame(step);
     };
+
+    rafId = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(rafId);
 
   }, [autoRotate, viewMode]);
 
@@ -329,7 +315,7 @@ export default function RadialOrbitalTimeline({
 
     <div
 
-      className="w-full h-[60vh] sm:h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="w-full h-[42vh] sm:h-screen flex flex-col items-center justify-center overflow-hidden"
 
       ref={containerRef}
 
@@ -414,7 +400,7 @@ export default function RadialOrbitalTimeline({
 
                 ref={(el) => { nodeRefs.current[item.id] = el; }}
 
-                className="absolute transition-all duration-700 cursor-pointer"
+                className={`absolute cursor-pointer ${isMobile ? "" : "transition-all duration-700"}`}
 
                 style={nodeStyle}
 

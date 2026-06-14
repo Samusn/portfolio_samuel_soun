@@ -140,7 +140,7 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center py-4 sm:py-10 min-h-[60vh] sm:min-h-screen"
+      className="flex flex-col items-center py-2 sm:py-10 min-h-0 sm:min-h-screen"
     >
       <div className="mx-auto w-full max-w-5xl space-y-3 px-4 text-left sm:space-y-4 sm:px-6 md:text-center lg:px-12">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 sm:text-sm dark:text-slate-400">
