@@ -117,7 +117,7 @@ function HeroSocialLinks({
           href={social.href}
           target="_blank"
           rel="noreferrer"
-          className="group relative inline-flex items-center justify-center gap-1 rounded-2xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-[11px] font-medium uppercase tracking-wide text-slate-700 backdrop-blur transition-all duration-300 active:border-slate-300 active:bg-slate-100 active:text-slate-900 active:shadow-[0_8px_20px_rgba(15,23,42,0.1)] active:scale-95 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs md:hover:border-slate-300 md:hover:bg-slate-100 md:hover:text-slate-900 md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.1)] md:hover:scale-105 md:active:scale-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:active:border-slate-600 dark:active:bg-slate-700 dark:md:hover:border-slate-600 dark:md:hover:bg-slate-700 dark:md:hover:text-white"
+          className="group relative inline-flex items-center justify-center gap-1 rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-medium uppercase tracking-wide text-slate-700 backdrop-blur transition-all duration-300 active:border-slate-300 active:bg-slate-100 active:text-slate-900 active:shadow-[0_8px_20px_rgba(15,23,42,0.1)] active:scale-95 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs md:hover:border-slate-300 md:hover:bg-slate-100 md:hover:text-slate-900 md:hover:shadow-[0_8px_20px_rgba(15,23,42,0.1)] md:hover:scale-105 md:active:scale-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:active:border-slate-600 dark:active:bg-slate-700 dark:md:hover:border-slate-600 dark:md:hover:bg-slate-700 dark:md:hover:text-white"
         >
           <span className="relative z-10 flex items-center gap-1 sm:gap-2">
             {social.icon}

@@ -78,7 +78,7 @@ export const Timeline = ({ data, className }: TimelineProps) => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, amount: 0.4 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.05 }}
-              className="relative w-full pl-20 pr-4 md:pl-4"
+              className="relative w-full pl-16 pr-4 sm:pl-20 md:pl-4"
             >
               <div className="absolute left-3 top-3 h-10 w-10 rounded-full border border-slate-300 bg-slate-100 backdrop-blur dark:border-slate-600 dark:bg-slate-800 md:hidden">
                 <div className="m-3 h-4 w-4 rounded-full bg-blue-500" />

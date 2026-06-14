@@ -46,7 +46,7 @@ export function BlogSection({
           </p>
         </BlurFade>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-4 md:gap-8 md:grid-cols-2">
           {blogPosts.map((post, index) => {
             const isLastOdd = blogPosts.length % 2 !== 0 && index === blogPosts.length - 1;
 

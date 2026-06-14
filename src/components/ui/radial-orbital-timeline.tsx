@@ -444,7 +444,7 @@ export default function RadialOrbitalTimeline({
 
                   className={`
 
-                  ${isMobile ? "w-8 h-8" : "w-14 h-14"} rounded-full flex items-center justify-center
+                  ${isMobile ? "w-11 h-11" : "w-14 h-14"} rounded-full flex items-center justify-center
 
                   ${
 
@@ -484,7 +484,7 @@ export default function RadialOrbitalTimeline({
 
                 >
 
-                  <Icon size={isMobile ? 12 : 22} />
+                  <Icon size={isMobile ? 16 : 22} />
 
                 </div>
 
