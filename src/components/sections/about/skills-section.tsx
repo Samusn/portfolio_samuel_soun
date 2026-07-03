@@ -12,6 +12,15 @@ import {
   Globe,
   Users,
 } from "lucide-react";
+import {
+  IconBrandReact,
+  IconBrandTypescript,
+  IconBrandJavascript,
+  IconBrandDocker,
+  IconBrandNextjs,
+  IconBrandGit,
+  IconBrandTailwind,
+} from "@tabler/icons-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
 const skillsData = [
@@ -159,6 +168,27 @@ export function SkillsSection() {
           Tools, programming languages, and technologies I have dealt with so
           far
         </p>
+
+        <div className="flex flex-wrap justify-center gap-3 pt-2 md:justify-center">
+          {[
+            { icon: IconBrandReact, label: "React" },
+            { icon: IconBrandTypescript, label: "TypeScript" },
+            { icon: IconBrandJavascript, label: "JavaScript" },
+            { icon: IconBrandNextjs, label: "Next.js" },
+            { icon: IconBrandTailwind, label: "Tailwind" },
+            { icon: IconBrandDocker, label: "Docker" },
+            { icon: IconBrandGit, label: "Git" },
+          ].map(({ icon: Icon, label }) => (
+            <div
+              key={label}
+              title={label}
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-slate-500 transition-colors duration-200 active:border-slate-300 active:text-slate-700 md:hover:border-slate-300 md:hover:text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:md:hover:border-slate-500 dark:md:hover:text-slate-200"
+            >
+              <Icon size={16} />
+              <span className="text-[11px] font-medium">{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
       <RadialOrbitalTimeline timelineData={skillsData} />
     </section>

@@ -135,4 +135,12 @@
   body {
     @apply text-foreground font-sans;
   }
+  @media (pointer: fine) {
+    body {
+      cursor: none;
+    }
+    a, button, [role="button"] {
+      cursor: none;
+    }
+  }
 }

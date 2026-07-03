@@ -60,6 +60,7 @@ export function HeroSection({
           onScrollTo={onScrollTo}
           blogHref={blogHref}
         />
+
       </div>
     </motion.section>
   );

@@ -4,6 +4,7 @@ import "./globals.css";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -41,6 +42,7 @@ export default function RootLayout({
           <div className="relative z-10">
             {children}
           </div>
+          <CustomCursor />
           <ThemeToggle className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6" />
         </ThemeProvider>
       </body>
