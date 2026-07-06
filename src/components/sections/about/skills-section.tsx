@@ -22,6 +22,7 @@ import {
   IconBrandTailwind,
 } from "@tabler/icons-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const skillsData = [
   {
@@ -151,7 +152,7 @@ export function SkillsSection() {
       id="skills"
       className="flex flex-col items-center py-2 sm:py-10 min-h-0 sm:min-h-screen"
     >
-      <div className="mx-auto w-full max-w-5xl space-y-3 px-4 text-left sm:space-y-4 sm:px-6 md:text-center lg:px-12">
+      <BlurFade delay={0.05} inView className="mx-auto w-full max-w-5xl space-y-3 px-4 text-left sm:space-y-4 sm:px-6 md:text-center lg:px-12">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 sm:text-sm dark:text-slate-400">
           Competencies
         </p>
@@ -190,7 +191,7 @@ export function SkillsSection() {
             </div>
           ))}
         </div>
-      </div>
+      </BlurFade>
       <RadialOrbitalTimeline timelineData={skillsData} />
     </section>
   );

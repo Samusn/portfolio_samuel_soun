@@ -1,6 +1,7 @@
 "use client";
 
 import type { PresenceHighlight } from "@/data/about";
+import { BlurFade } from "@/components/ui/blur-fade";
 import { motion, type Transition, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,13 +40,7 @@ export function AboutIntroSection({
     >
       <div className="mx-auto w-full max-w-5xl space-y-8 sm:space-y-12">
         <div className="grid gap-8 sm:gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-          <motion.div
-            variants={popIn}
-            initial="hidden"
-            animate={isMounted ? "visible" : "hidden"}
-            transition={{ ...popInTransition, delay: 0.12 }}
-            className="order-2 md:order-1 relative isolate overflow-hidden rounded-3xl shadow-[0_12px_40px_rgba(15,23,42,0.15)]"
-          >
+          <BlurFade delay={0.1} inView className="order-2 md:order-1 relative isolate overflow-hidden rounded-3xl shadow-[0_12px_40px_rgba(15,23,42,0.15)]">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
               <Image
                 src="/images/portfolio.jpg"
@@ -56,15 +51,9 @@ export function AboutIntroSection({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
               />
             </div>
-          </motion.div>
+          </BlurFade>
 
-          <motion.div
-            variants={popIn}
-            initial="hidden"
-            animate={isMounted ? "visible" : "hidden"}
-            transition={{ ...popInTransition, delay: 0.02 }}
-            className="order-1 md:order-2 space-y-4 sm:space-y-6 text-left md:text-left"
-          >
+          <BlurFade delay={0.05} inView className="order-1 md:order-2 space-y-4 sm:space-y-6 text-left md:text-left">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
               About Me
             </p>
@@ -79,16 +68,10 @@ export function AboutIntroSection({
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300">
               {description}
             </p>
-          </motion.div>
+          </BlurFade>
         </div>
 
-        <motion.div
-          variants={popIn}
-          initial="hidden"
-          animate={isMounted ? "visible" : "hidden"}
-          transition={{ ...popInTransition, delay: 0.2 }}
-          className="flex flex-wrap gap-3 sm:gap-4"
-        >
+        <BlurFade delay={0.2} inView className="flex flex-wrap gap-3 sm:gap-4">
           {presenceHighlights.map((highlight) => (
             <div
               key={highlight.label}
@@ -109,7 +92,7 @@ export function AboutIntroSection({
               {switchLink.label}
             </Link>
           )}
-        </motion.div>
+        </BlurFade>
       </div>
     </motion.section>
   );
