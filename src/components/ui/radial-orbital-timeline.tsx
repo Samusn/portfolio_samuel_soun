@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { ArrowRight, Link, Zap } from "lucide-react";
 
@@ -93,9 +94,18 @@ export default function RadialOrbitalTimeline({
 
     check();
 
-    window.addEventListener("resize", check);
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const debouncedCheck = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(check, 150);
+    };
 
-    return () => window.removeEventListener("resize", check);
+    window.addEventListener("resize", debouncedCheck);
+
+    return () => {
+      window.removeEventListener("resize", debouncedCheck);
+      clearTimeout(resizeTimer);
+    };
 
   }, []);
 
@@ -195,7 +205,7 @@ export default function RadialOrbitalTimeline({
     const step = (timestamp: number) => {
       if (lastTime !== null) {
         const delta = timestamp - lastTime;
-        setRotationAngle((prev) => Number(((prev + 0.3 * delta / 50) % 360).toFixed(3)));
+        setRotationAngle((prev) => (prev + Math.min(delta, 100) * 0.006) % 360);
       }
       lastTime = timestamp;
       rafId = requestAnimationFrame(step);
@@ -315,7 +325,7 @@ export default function RadialOrbitalTimeline({
 
     <div
 
-      className="w-full h-[42vh] sm:h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="w-full h-[42svh] sm:h-screen flex flex-col items-center justify-center overflow-hidden"
 
       ref={containerRef}
 
@@ -341,17 +351,7 @@ export default function RadialOrbitalTimeline({
 
         >
 
-          <div className={`absolute ${isMobile ? "w-12 h-12" : "w-24 h-24"} rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10`}>
-
-            <div className={`absolute ${isMobile ? "w-16 h-16" : "w-32 h-32"} rounded-full border border-border animate-ping opacity-70`}></div>
-
-            <div
-
-              className={`absolute ${isMobile ? "w-20 h-20" : "w-40 h-40"} rounded-full border border-border animate-ping opacity-50`}
-
-              style={{ animationDelay: "0.5s" }}
-
-            ></div>
+          <div className={`absolute ${isMobile ? "w-12 h-12" : "w-24 h-24"} rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 flex items-center justify-center z-10`}>
 
             <svg xmlns="http://www.w3.org/2000/svg" width={isMobile ? 20 : 40} height={isMobile ? 20 : 40} viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="16 18 22 12 16 6" />
@@ -380,13 +380,14 @@ export default function RadialOrbitalTimeline({
 
 
 
+
             const nodeStyle = {
 
               transform: `translate(${position.x}px, ${position.y}px)`,
 
               zIndex: isExpanded ? 200 : position.zIndex,
 
-              opacity: isExpanded ? 1 : position.opacity,
+              opacity: 1,
 
             };
 
@@ -400,7 +401,7 @@ export default function RadialOrbitalTimeline({
 
                 ref={(el) => { nodeRefs.current[item.id] = el; }}
 
-                className={`absolute cursor-pointer ${isMobile ? "" : "transition-all duration-700"}`}
+                className="absolute cursor-pointer"
 
                 style={nodeStyle}
 
@@ -512,9 +513,17 @@ export default function RadialOrbitalTimeline({
 
 
 
+                <AnimatePresence>
                 {isExpanded && !isMobile && (
 
-                  <Card className="absolute top-12 left-1/2 -translate-x-1/2 w-80 bg-card/95 backdrop-blur-lg border-border shadow-xl overflow-visible">
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute top-12 left-1/2 -translate-x-1/2"
+                  >
+                  <Card className="w-80 bg-card/95 backdrop-blur-lg border-border shadow-xl overflow-visible">
 
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-border"></div>
 
@@ -597,8 +606,10 @@ export default function RadialOrbitalTimeline({
                     </CardContent>
 
                   </Card>
+                  </motion.div>
 
                 )}
+                </AnimatePresence>
 
               </div>
 
@@ -610,6 +621,7 @@ export default function RadialOrbitalTimeline({
 
       </div>
 
+      <AnimatePresence>
       {isMobile && activeNodeId !== null && (() => {
 
         const item = timelineData.find((i) => i.id === activeNodeId);
@@ -618,8 +630,12 @@ export default function RadialOrbitalTimeline({
 
         return (
 
-          <div
-
+          <motion.div
+            key={activeNodeId}
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100%", opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed bottom-0 left-0 right-0 z-[500] px-4 pb-6 pt-2"
 
             onClick={(e) => e.stopPropagation()}
@@ -724,11 +740,12 @@ export default function RadialOrbitalTimeline({
 
             </Card>
 
-          </div>
+          </motion.div>
 
         );
 
       })()}
+      </AnimatePresence>
 
     </div>
 

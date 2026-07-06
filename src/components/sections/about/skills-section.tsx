@@ -178,6 +178,7 @@ export function SkillsSection() {
             { icon: IconBrandTailwind, label: "Tailwind" },
             { icon: IconBrandDocker, label: "Docker" },
             { icon: IconBrandGit, label: "Git" },
+            { icon: Coffee, label: "Java" },
           ].map(({ icon: Icon, label }) => (
             <div
               key={label}
