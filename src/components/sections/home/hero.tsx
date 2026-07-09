@@ -153,7 +153,7 @@ function HeroActions({ popIn, popInTransition, isMounted, onScrollTo, blogHref }
         >
           <span className="relative z-10">More About Me</span>
         </button>
-        <Link href={blogHref} className="w-full sm:w-auto">
+<Link href={blogHref} className="w-full sm:w-auto">
           <span className="group relative inline-flex w-full items-center justify-center rounded-2xl border border-blue-300/60 bg-gradient-to-r from-sky-400 via-blue-500 to-blue-600 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_25px_rgba(37,99,235,0.3)] transition-all duration-250 active:scale-95 active:shadow-[0_4px_15px_rgba(37,99,235,0.3)] md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_35px_rgba(37,99,235,0.4)] md:hover:from-sky-300 md:hover:via-blue-400 md:hover:to-blue-500 md:active:translate-y-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-300 sm:text-base">
             <span className="relative z-10">Blog</span>
             <span className="pointer-events-none absolute inset-0 rounded-2xl border border-white/30 opacity-0 transition-opacity duration-250 md:group-hover:opacity-100" />
