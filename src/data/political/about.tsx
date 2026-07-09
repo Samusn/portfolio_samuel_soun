@@ -43,25 +43,25 @@ export const politicalPresenceHighlights: PresenceHighlight[] = [
 
 export const politicalTimelineItems: TimelineItem[] = [
   {
-    period: "Sep. 2025 – Heute",
+    period: "2026 – Heute",
     project: "Stimmenzähler im Wahlbüro",
     team: "FDP · Gemeinde Suhr",
     description:
       "Am 30. September 2025 wurde ich in das Wahlbüro von Suhr gewählt. Als Stimmenzähler bin ich für die korrekte Auszählung der Stimmen verantwortlich. Dies ist mein erster offizieller Schritt in die Lokalpolitik.",
   },
   {
-    period: "2024 – Heute",
+    period: "2026 – Heute",
     project: "Vorstandsmitglied · Aktuar",
     team: "FDP Suhr",
     description:
       "Aktives Mitglied des Vorstands der FDP Suhr. Als Aktuar halte ich die Vorstandssitzungen fest und bringe mich in die strategische und organisatorische Arbeit der Ortssektion ein.",
   },
   {
-    period: "2024 – Heute",
+    period: "2025 – Heute",
     project: "Mitglied",
     team: "Jungfreisinnige Schweiz",
     description:
-      "Mitglied der Jungfreisinnigen Schweiz, der Jugendorganisation der FDP.Die Liberalen. Ich engagiere mich für liberale Werte, Veranstaltungen und Initiativen auf regionaler Ebene, insbesondere durch die Sektion Jungfreisinnige Aarau-Lenzburg-Kulm.",
+      "Mitglied der Jungfreisinnigen Schweiz, der Jugendorganisation der FDP.Die Liberalen. Ich engagiere mich für liberale Werte, Veranstaltungen und Initiativen auf regionaler und kantonaler Ebene, insbesondere durch die Sektion Jungfreisinnige Aarau-Lenzburg-Kulm sowie durch mein Engagement in der Kantonalpartei der Jungfreisinnigen Aargau.",
   },
 ];
 
