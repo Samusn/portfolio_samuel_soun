@@ -190,6 +190,13 @@ export function SkillsSection() {
           ))}
         </div>
 
+      </BlurFade>
+
+      <div className="mt-12 w-full">
+        <RadialOrbitalTimeline timelineData={skillsData} />
+      </div>
+
+      <div className="mt-12 flex justify-center">
         <Link
           href="/projects"
           className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-900 px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-white transition-all active:scale-95 md:hover:bg-slate-800 dark:border-slate-600 dark:bg-white dark:text-slate-900 dark:md:hover:bg-slate-100"
@@ -197,9 +204,7 @@ export function SkillsSection() {
           View Projects
           <IconArrowRight size={15} />
         </Link>
-      </BlurFade>
-
-      <RadialOrbitalTimeline timelineData={skillsData} />
+      </div>
     </section>
   );
 }
