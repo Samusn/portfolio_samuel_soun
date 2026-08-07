@@ -2,7 +2,7 @@
 
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Timeline } from "@/components/ui/timeline";
-import type { TimelineItem } from "@/data/about";
+import type { TimelineItem } from "@/data/timeline";
 import { motion, type Transition, type Variants } from "framer-motion";
 
 type TimelineSectionProps = {
