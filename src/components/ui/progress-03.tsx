@@ -7,31 +7,31 @@ import { cn } from "@/lib/utils";
 const stats = [
   {
     label: "React / Next.js",
-    value: 90,
+    value: 80,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-blue-500!",
     trackClass: "**:data-[slot='progress-track']:bg-blue-500/20!",
   },
   {
     label: "TypeScript / JavaScript",
-    value: 85,
+    value: 80,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-orange-400!",
     trackClass: "**:data-[slot='progress-track']:bg-orange-400/20!",
   },
   {
     label: "Java & REST API",
-    value: 65,
+    value: 60,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-amber-500!",
     trackClass: "**:data-[slot='progress-track']:bg-amber-500/20!",
   },
   {
     label: "Docker & CI/CD",
-    value: 80,
+    value: 75,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-sky-400!",
     trackClass: "**:data-[slot='progress-track']:bg-sky-400/20!",
   },
   {
     label: "Linux",
-    value: 85,
+    value: 70,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-teal-400!",
     trackClass: "**:data-[slot='progress-track']:bg-teal-400/20!",
   },
@@ -68,7 +68,9 @@ export default function SkillsProgress() {
       {stats.map(({ label, value, indicatorClass, trackClass }) => (
         <div key={label} className="space-y-1.5">
           <div className="flex items-center justify-between">
-            <span className="text-sm text-slate-600 dark:text-slate-400">{label}</span>
+            <span className="text-sm text-slate-600 dark:text-slate-400">
+              {label}
+            </span>
             <span className="text-xs font-medium tabular-nums text-slate-400 dark:text-slate-500">
               {mounted ? value : 0}%
             </span>
