@@ -5,7 +5,8 @@ import { AboutIntroSection } from "@/components/sections/about/about-intro-secti
 import { SkillsSection } from "@/components/sections/about/skills-section";
 import { TimelineSection } from "@/components/sections/about/timeline-section";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { presenceHighlights, timelineItems } from "@/data/about";
+import { presenceHighlights } from "@/data/about";
+import { timelineItems } from "@/data/timeline";
 import { socialLinks } from "@/data/home";
 import type { Transition, Variants } from "framer-motion";
 import * as React from "react";

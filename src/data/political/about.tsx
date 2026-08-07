@@ -6,7 +6,8 @@ import {
   IconHome,
   IconMail,
 } from "@tabler/icons-react";
-import type { AboutSocialLink, PresenceHighlight, TimelineItem } from "@/data/about";
+import type { AboutSocialLink, PresenceHighlight } from "@/data/about";
+import type { TimelineItem } from "@/data/timeline";
 
 export const politicalSocialLinks: AboutSocialLink[] = [
   {

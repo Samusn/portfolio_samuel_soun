@@ -1,43 +1,10 @@
 "use client";
 
-import { Coffee, Activity, TrendingUp, Search } from "lucide-react";
-import {
-  IconBrandReact,
-  IconBrandTypescript,
-  IconBrandJavascript,
-  IconBrandDocker,
-  IconBrandNextjs,
-  IconBrandGit,
-  IconBrandGithub,
-  IconBrandTailwind,
-  IconBrandHtml5,
-  IconBrandCss3,
-  IconBrandMysql,
-  IconSql,
-  IconArrowRight,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconArrowRight } from "@tabler/icons-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import SkillsProgress from "@/components/ui/progress-03";
+import { techStack } from "@/data/skills";
 import Link from "next/link";
-
-const techStack = [
-  { icon: IconBrandReact, label: "React" },
-  { icon: IconBrandTypescript, label: "TypeScript" },
-  { icon: IconBrandJavascript, label: "JavaScript" },
-  { icon: IconBrandNextjs, label: "Next.js" },
-  { icon: IconBrandTailwind, label: "Tailwind" },
-  { icon: IconBrandDocker, label: "Docker" },
-  { icon: IconBrandGit, label: "Git" },
-  { icon: Coffee, label: "Java" },
-  { icon: IconBrandHtml5, label: "HTML" },
-  { icon: IconBrandCss3, label: "CSS" },
-  { icon: Activity, label: "Grafana" },
-  { icon: TrendingUp, label: "Prometheus" },
-  { icon: Search, label: "Splunk" },
-  { icon: IconSql, label: "SQL" },
-  { icon: IconBrandMysql, label: "MariaDB" },
-  { icon: IconSql, label: "PostgreSQL" },
-];
 
 export function SkillsSection() {
   return (
