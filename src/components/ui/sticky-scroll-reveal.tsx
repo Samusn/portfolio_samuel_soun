@@ -168,6 +168,8 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
                     fill
                     className="object-cover"
                     alt={`${item.title} — screenshot ${activeImage + 1}`}
+                    unoptimized={images[activeImage].startsWith("/")}
+                    sizes="(max-width: 1024px) 100vw, 48vw"
                   />
                 ) : (
                   item.content

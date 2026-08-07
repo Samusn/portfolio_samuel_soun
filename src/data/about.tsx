@@ -51,7 +51,14 @@ export const aboutSocialLinks: AboutSocialLink[] = [
 
 export const timelineItems: TimelineItem[] = [
   {
-    period: "Aug 2025 – Today",
+    period: "June 2026 – Today",
+    project: "Python Backend Development",
+    team: "Swisscom · Team SEO HCS",
+    description:
+      "In this project, I’m gaining hands-on insight into the HCS SEO software development environment, which is based on Python and Flask. I’m working closely with experienced software developers and taking on my own tasks in line with the team’s roadmap. I will then implement smaller projects and subtasks according to the roadmap and support the team in developing modules and tools in the area of network security orchestration (TUFIN). I also have the opportunity to complete my practical work (IPA) directly within the team, which allows me to apply and deepen my knowledge in a concrete, practice-oriented project.",
+  },
+  {
+    period: "Aug 2025 – June 2026",
     project: "Fullstack Engineer",
     team: "Swisscom · KeyCom",
     description:
@@ -92,4 +99,3 @@ export const presenceHighlights: PresenceHighlight[] = [
 ];
 
 export const homeIcon = <IconHome size={16} />;
-
