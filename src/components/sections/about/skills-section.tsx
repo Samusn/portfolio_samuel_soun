@@ -12,6 +12,8 @@ import {
   IconBrandTailwind,
   IconBrandHtml5,
   IconBrandCss3,
+  IconBrandMysql,
+  IconSql,
   IconArrowRight,
 } from "@tabler/icons-react";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -32,6 +34,9 @@ const techStack = [
   { icon: Activity, label: "Grafana" },
   { icon: TrendingUp, label: "Prometheus" },
   { icon: Search, label: "Splunk" },
+  { icon: IconSql, label: "SQL" },
+  { icon: IconBrandMysql, label: "MariaDB" },
+  { icon: IconSql, label: "PostgreSQL" },
 ];
 
 export function SkillsSection() {

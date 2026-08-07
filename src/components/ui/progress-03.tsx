@@ -47,6 +47,12 @@ const stats = [
     indicatorClass: "**:data-[slot='progress-indicator']:bg-emerald-400!",
     trackClass: "**:data-[slot='progress-track']:bg-emerald-400/20!",
   },
+  {
+    label: "Databases (SQL, MariaDB, PostgreSQL)",
+    value: 70,
+    indicatorClass: "**:data-[slot='progress-indicator']:bg-cyan-400!",
+    trackClass: "**:data-[slot='progress-track']:bg-cyan-400/20!",
+  },
 ] as const;
 
 export default function SkillsProgress() {
