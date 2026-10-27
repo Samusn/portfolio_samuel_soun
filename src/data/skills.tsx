@@ -12,6 +12,7 @@ import {
   IconBrandCss3,
   IconBrandMysql,
   IconSql,
+  IconBrandPython,
 } from "@tabler/icons-react";
 
 // ── Tech Stack Pills ──────────────────────────────────────────────────────────
@@ -32,6 +33,7 @@ export const techStack: TechStackItem[] = [
   { icon: IconBrandDocker, label: "Docker" },
   { icon: IconBrandGit, label: "Git" },
   { icon: Coffee, label: "Java" },
+  { icon: IconBrandPython, label: "Python" },
   { icon: Activity, label: "Grafana" },
   { icon: TrendingUp, label: "Prometheus" },
   { icon: Search, label: "Splunk" },
@@ -40,62 +42,28 @@ export const techStack: TechStackItem[] = [
   { icon: IconSql, label: "PostgreSQL" },
 ];
 
-// ── Skill Progress Bars ───────────────────────────────────────────────────────
+// ── Skill Levels ──────────────────────────────────────────────────────────────
 
-export type SkillStat = {
+export type SkillLevel = "Advanced" | "Proficient" | "Intermediate";
+
+export type SkillArea = {
   label: string;
-  value: number;
-  indicatorClass: string;
-  trackClass: string;
+  level: SkillLevel;
+  /** Tailwind background class for the accent dot and filled segments */
+  color: string;
 };
 
-export const skillsProgress: SkillStat[] = [
-  {
-    label: "React / Next.js",
-    value: 90,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-blue-500!",
-    trackClass: "**:data-[slot='progress-track']:bg-blue-500/20!",
-  },
-  {
-    label: "TypeScript / JavaScript",
-    value: 85,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-orange-400!",
-    trackClass: "**:data-[slot='progress-track']:bg-orange-400/20!",
-  },
-  {
-    label: "Java & REST API",
-    value: 65,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-amber-500!",
-    trackClass: "**:data-[slot='progress-track']:bg-amber-500/20!",
-  },
-  {
-    label: "Docker & CI/CD",
-    value: 80,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-sky-400!",
-    trackClass: "**:data-[slot='progress-track']:bg-sky-400/20!",
-  },
-  {
-    label: "Linux",
-    value: 85,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-teal-400!",
-    trackClass: "**:data-[slot='progress-track']:bg-teal-400/20!",
-  },
-  {
-    label: "Network",
-    value: 70,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-violet-400!",
-    trackClass: "**:data-[slot='progress-track']:bg-violet-400/20!",
-  },
-  {
-    label: "Monitoring",
-    value: 75,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-emerald-400!",
-    trackClass: "**:data-[slot='progress-track']:bg-emerald-400/20!",
-  },
-  {
-    label: "Databases (SQL, MariaDB, PostgreSQL)",
-    value: 70,
-    indicatorClass: "**:data-[slot='progress-indicator']:bg-cyan-400!",
-    trackClass: "**:data-[slot='progress-track']:bg-cyan-400/20!",
-  },
+export const skillLevels: SkillLevel[] = ["Intermediate", "Proficient", "Advanced"];
+
+export const skillAreas: SkillArea[] = [
+  { label: "React / Next.js", level: "Advanced", color: "bg-blue-500" },
+  { label: "TypeScript / JavaScript", level: "Advanced", color: "bg-orange-400" },
+  { label: "Linux", level: "Advanced", color: "bg-teal-400" },
+  { label: "Git", level: "Advanced", color: "bg-red-400" },
+  { label: "Docker & CI/CD", level: "Proficient", color: "bg-sky-400" },
+  { label: "Monitoring", level: "Proficient", color: "bg-emerald-400" },
+  { label: "Network", level: "Proficient", color: "bg-violet-400" },
+  { label: "Databases", level: "Proficient", color: "bg-cyan-400" },
+  { label: "Python", level: "Proficient", color: "bg-yellow-400" },
+  { label: "Java", level: "Proficient", color: "bg-amber-500" },
 ];

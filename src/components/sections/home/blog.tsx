@@ -69,7 +69,7 @@ type BlogCardProps = {
 
 function BlogCard({ post, index }: BlogCardProps) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/60 bg-white/70 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm transition-all duration-500 md:hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] md:hover:-translate-y-1">
+    <article className="group animate-float flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/60 bg-white/70 shadow-float backdrop-blur-sm transition-all duration-500 md:hover:shadow-float-hover md:hover:-translate-y-1">
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image
           src={post.imageUrl}

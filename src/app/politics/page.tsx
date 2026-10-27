@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/sections/home/hero";
 import { AboutIntroSection } from "@/components/sections/about/about-intro-section";
 import { TimelineSection } from "@/components/sections/about/timeline-section";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { politicalPresenceHighlights, politicalTimelineItems } from "@/data/political/about";
+import { politicalAboutStats, politicalPresenceHighlights, politicalTimelineItems } from "@/data/political/about";
 import { politicalSocialLinks } from "@/data/political/about";
 import type { SocialLink } from "@/data/home";
 import type { Transition, Variants } from "framer-motion";
@@ -74,6 +74,11 @@ export default function PoliticsPage() {
         sectionTransition={sectionTransition}
         isMounted={isMounted}
         presenceHighlights={politicalPresenceHighlights}
+        stats={politicalAboutStats}
+        eyebrow="Über mich"
+        location="Suhr, Aargau"
+        currentLabel="Aktuell"
+        currentRole={{ title: politicalTimelineItems[0].project, detail: politicalTimelineItems[0].team }}
         heading="Jung, freisinnig und bereit, etwas zu bewegen."
         description="Mein Name ist Samuel Soun und ich engagiere mich aktiv in der Lokalpolitik der Gemeinde Suhr. Als Mitglied der FDP Suhr und der Jungfreisinnigen Schweiz setze ich mich für liberale Werte, individuelle Freiheit und eine zukunftsorientierte Gesellschaft ein. Im September 2025 wurde ich in das Wahlbüro von Suhr gewählt, mein erster offizieller Schritt in die Lokalpolitik."
 

@@ -16,7 +16,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Samuel Soun · Portfolio",
+  metadataBase: new URL("https://samuelsoun.ch"),
+  title: {
+    default: "Samuel Soun · Portfolio",
+    template: "%s · Samuel Soun",
+  },
+  description:
+    "Portfolio of Samuel Soun, software developer apprentice at Swisscom. Projects, experience, skills and blog.",
+  openGraph: {
+    type: "website",
+    siteName: "Samuel Soun",
+    images: ["/images/portfolio.jpg"],
+  },
 };
 
 export default function RootLayout({

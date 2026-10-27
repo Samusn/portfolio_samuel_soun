@@ -67,7 +67,6 @@ export default function HomePage() {
         sectionTransition={sectionTransition}
         isMounted={isMounted}
         presenceHighlights={presenceHighlights}
-        switchLink={{ href: "/politics", label: "Politics Portfolio →" }}
       />
 
       <SkillsSection />
