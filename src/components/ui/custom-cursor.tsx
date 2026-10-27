@@ -51,7 +51,7 @@ export function CustomCursor() {
             opacity: visible ? 1 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          className="rounded-full border border-slate-400/50 dark:border-slate-500/50"
+          className="rounded-full border border-slate-400/50"
         />
       </motion.div>
 
@@ -72,7 +72,7 @@ export function CustomCursor() {
             opacity: visible ? 1 : 0,
           }}
           transition={{ duration: 0.1 }}
-          className="rounded-full bg-slate-600 dark:bg-slate-300"
+          className="rounded-full bg-slate-600"
         />
       </motion.div>
     </>

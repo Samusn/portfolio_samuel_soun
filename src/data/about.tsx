@@ -19,6 +19,12 @@ export type PresenceHighlight = {
   detail: string;
 };
 
+export type AboutStat = {
+  value: number;
+  suffix?: string;
+  label: string;
+};
+
 export const aboutSocialLinks: AboutSocialLink[] = [
   {
     href: "https://github.com/Samusn?tab=repositories",
@@ -49,8 +55,13 @@ export const presenceHighlights: PresenceHighlight[] = [
   },
   {
     label: "BBW & BMS-W Winterthur",
-    detail: "Berufsschule · Berufsmaturitätschule",
+    detail: "Berufsschule · Berufsmaturitätsschule",
   },
+];
+
+export const aboutStats: AboutStat[] = [
+  { value: 3, suffix: "+", label: "Years at Swisscom" },
+  { value: 16, suffix: "+", label: "Technologies" },
 ];
 
 export const homeIcon = <IconHome size={16} />;

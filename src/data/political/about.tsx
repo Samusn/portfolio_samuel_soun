@@ -6,7 +6,7 @@ import {
   IconHome,
   IconMail,
 } from "@tabler/icons-react";
-import type { AboutSocialLink, PresenceHighlight } from "@/data/about";
+import type { AboutSocialLink, AboutStat, PresenceHighlight } from "@/data/about";
 import type { TimelineItem } from "@/data/timeline";
 
 export const politicalSocialLinks: AboutSocialLink[] = [
@@ -64,6 +64,12 @@ export const politicalTimelineItems: TimelineItem[] = [
     description:
       "Mitglied der Jungfreisinnigen Schweiz, der Jugendorganisation der FDP.Die Liberalen. Ich engagiere mich für liberale Werte, Veranstaltungen und Initiativen auf regionaler und kantonaler Ebene, insbesondere durch die Sektion Jungfreisinnige Aarau-Lenzburg-Kulm sowie durch mein Engagement in der Kantonalpartei der Jungfreisinnigen Aargau.",
   },
+];
+
+export const politicalAboutStats: AboutStat[] = [
+  { value: 913, label: "Stimmen bei der Wahl" },
+  { value: 3, label: "Politische Ämter & Mitgliedschaften" },
+  { value: 1, label: "Gewähltes Amt im Wahlbüro" },
 ];
 
 export const politicalHomeIcon = <IconHome size={16} />;

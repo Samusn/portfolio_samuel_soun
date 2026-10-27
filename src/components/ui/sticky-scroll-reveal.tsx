@@ -32,9 +32,9 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
       {/* ── Timeline overview ── */}
       <div className="relative">
         {/* connecting line */}
-        <div className="absolute top-[18px] left-0 right-0 h-px bg-slate-200 dark:bg-slate-700" />
+        <div className="absolute top-[18px] left-0 right-0 h-px bg-slate-200" />
         <div
-          className="absolute top-[18px] left-0 h-px bg-slate-900 dark:bg-white transition-all duration-500"
+          className="absolute top-[18px] left-0 h-px bg-slate-900 transition-all duration-500"
           style={{ width: `${((activeCard) / (content.length - 1)) * 100}%` }}
         />
         <div className="relative flex justify-between">
@@ -48,10 +48,10 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
               <div
                 className={`relative z-10 flex h-9 w-9 items-center justify-center rounded-full border-2 text-[11px] font-bold transition-all duration-300 ${
                   i === activeCard
-                    ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900 scale-110"
+                    ? "border-slate-900 bg-slate-900 text-white scale-110"
                     : i < activeCard
-                    ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900"
-                    : "border-slate-300 bg-white text-slate-400 group-hover:border-slate-500 group-hover:text-slate-600 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-500"
+                    ? "border-slate-900 bg-slate-900 text-white"
+                    : "border-slate-300 bg-white text-slate-400 group-hover:border-slate-500 group-hover:text-slate-600"
                 }`}
               >
                 {String(i + 1).padStart(2, "0")}
@@ -60,8 +60,8 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
               <span
                 className={`hidden sm:block max-w-[100px] text-center text-[11px] font-medium leading-tight transition-colors duration-300 ${
                   i === activeCard
-                    ? "text-slate-900 dark:text-white"
-                    : "text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300"
+                    ? "text-slate-900"
+                    : "text-slate-400 group-hover:text-slate-600"
                 }`}
               >
                 {project.title.split("—")[0].trim().split(" ").slice(0, 2).join(" ")}
@@ -85,15 +85,15 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="space-y-5"
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">
+              <span className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400">
                 Project {String(activeCard + 1).padStart(2, "0")} / {String(content.length).padStart(2, "0")}
               </span>
 
-              <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
+              <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
                 {item.title}
               </h2>
 
-              <p className="max-w-md text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="max-w-md text-base text-slate-600 leading-relaxed">
                 {item.description}
               </p>
 
@@ -101,7 +101,7 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
+                    className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-500"
                   >
                     {tag}
                   </span>
@@ -116,7 +116,7 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
               onClick={prev}
               disabled={activeCard === 0}
               aria-label="Previous project"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all disabled:pointer-events-none disabled:opacity-30 md:hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:md:hover:bg-slate-700"
+              className="glass-subtle inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 disabled:pointer-events-none disabled:opacity-30 md:hover:shadow-[0_4px_16px_rgba(15,23,42,0.06)]"
             >
               <IconChevronLeft size={16} />
               Previous
@@ -131,8 +131,8 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
                   aria-label={`Go to project ${i + 1}`}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     i === activeCard
-                      ? "w-6 bg-slate-900 dark:bg-white"
-                      : "w-1.5 bg-slate-300 dark:bg-slate-600"
+                      ? "w-6 bg-gradient-to-r from-blue-500 to-indigo-500"
+                      : "w-1.5 bg-slate-300"
                   }`}
                 />
               ))}
@@ -142,7 +142,7 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
               onClick={next}
               disabled={activeCard === content.length - 1}
               aria-label="Next project"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all disabled:pointer-events-none disabled:opacity-30 md:hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:md:hover:bg-slate-700"
+              className="glass-subtle inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 disabled:pointer-events-none disabled:opacity-30 md:hover:shadow-[0_4px_16px_rgba(15,23,42,0.06)]"
             >
               Next
               <IconChevronRight size={16} />
@@ -228,7 +228,7 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition-colors md:hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:md:hover:bg-slate-700"
+                  className="glass-subtle inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-slate-700 transition-all duration-300 md:hover:shadow-[0_4px_16px_rgba(15,23,42,0.06)] md:hover:-translate-y-0.5"
                 >
                   <IconBrandGithub size={16} />
                   Repo
@@ -239,7 +239,7 @@ export const StickyScroll = ({ content }: { content: Project[] }) => {
                   href={item.liveHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 transition-colors md:hover:bg-blue-100 dark:border-blue-900 dark:bg-blue-950/50 dark:text-blue-400"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-200/50 px-4 py-2 text-sm font-medium text-blue-700 backdrop-blur-sm transition-all duration-300 md:hover:shadow-[0_4px_16px_rgba(59,130,246,0.12)] md:hover:-translate-y-0.5"
                 >
                   <IconExternalLink size={16} />
                   Live

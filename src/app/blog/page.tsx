@@ -26,7 +26,7 @@ export default function BlogPage() {
       <nav className="fixed top-0 left-0 right-0 z-40 flex items-center px-4 py-4 sm:px-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-2.5 text-sm font-semibold font-sans text-slate-700 shadow-sm backdrop-blur transition-all duration-200 active:scale-95 md:hover:border-slate-300 md:hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-300 dark:md:hover:border-slate-600 dark:md:hover:bg-slate-700"
+          className="glass inline-flex items-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-semibold font-sans text-slate-700 shadow-sm transition-all duration-300 active:scale-95 md:hover:shadow-[0_8px_24px_rgba(59,130,246,0.08)]"
         >
           <IconArrowLeft size={16} />
           Portfolio
