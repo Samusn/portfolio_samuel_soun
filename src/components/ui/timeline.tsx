@@ -40,7 +40,7 @@ export const Timeline = ({ data, className }: TimelineProps) => {
     <div
       ref={containerRef}
       className={cn(
-        "w-full font-sans text-slate-900 dark:text-white",
+        "w-full font-sans text-slate-900",
         className
       )}
     >
@@ -58,17 +58,17 @@ export const Timeline = ({ data, className }: TimelineProps) => {
               className="sticky top-40 z-40 hidden max-w-sm self-start md:flex md:w-full md:flex-row"
             >
               <div className="relative pl-20">
-                <div className="absolute left-3 top-1 h-10 w-10 rounded-full border border-slate-300 bg-slate-100 backdrop-blur dark:border-slate-600 dark:bg-slate-800">
-                  <div className="m-3 h-4 w-4 rounded-full bg-blue-500" />
+                <div className="absolute left-3 top-1 h-10 w-10 rounded-full border border-slate-200/60 bg-white/60 backdrop-blur-md shadow-[0_4px_16px_rgba(59,130,246,0.1)]">
+                  <div className="m-3 h-4 w-4 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
+                  <span className="text-xs uppercase tracking-[0.4em] text-slate-500">
                     {item.period}
                   </span>
-                  <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">
+                  <h3 className="text-3xl font-semibold text-slate-900">
                     {item.project}
                   </h3>
-                  <span className="text-sm text-slate-600 dark:text-slate-400">{item.team}</span>
+                  <span className="text-sm text-slate-600">{item.team}</span>
                 </div>
               </div>
             </motion.div>
@@ -80,30 +80,30 @@ export const Timeline = ({ data, className }: TimelineProps) => {
               transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.05 }}
               className="relative w-full pl-16 pr-4 sm:pl-20 md:pl-4"
             >
-              <div className="absolute left-3 top-3 h-10 w-10 rounded-full border border-slate-300 bg-slate-100 backdrop-blur dark:border-slate-600 dark:bg-slate-800 md:hidden">
-                <div className="m-3 h-4 w-4 rounded-full bg-blue-500" />
+              <div className="absolute left-3 top-3 h-10 w-10 rounded-full border border-slate-200/60 bg-white/60 backdrop-blur-md shadow-[0_4px_16px_rgba(59,130,246,0.1)] md:hidden">
+                <div className="m-3 h-4 w-4 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
               </div>
               <div className="md:hidden">
                 <span className="text-xs uppercase tracking-[0.4em] text-slate-500">
                   {item.period}
                 </span>
-                <h3 className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
+                <h3 className="mt-2 text-2xl font-semibold text-slate-900">
                   {item.project}
                 </h3>
                 <span className="text-sm text-slate-600">{item.team}</span>
               </div>
-              <p className="mt-4 text-slate-700 dark:text-slate-300">{item.description}</p>
+              <p className="mt-4 text-slate-700">{item.description}</p>
             </motion.div>
           </div>
         ))}
 
         <div
           style={{ height: height + "px" }}
-          className="absolute left-8 top-0 w-[2px] overflow-hidden bg-gradient-to-b from-transparent via-slate-300 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] dark:via-slate-600"
+          className="absolute left-8 top-0 w-[2px] overflow-hidden bg-gradient-to-b from-transparent via-slate-300 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
-            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-b from-blue-500 via-blue-600 to-transparent"
+            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-b from-blue-500 via-indigo-500 to-violet-500/50"
           />
         </div>
       </div>

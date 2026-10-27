@@ -18,10 +18,8 @@ export default function SkillsProgress() {
       {skillsProgress.map(({ label, value, indicatorClass, trackClass }) => (
         <div key={label} className="space-y-1.5">
           <div className="flex items-center justify-between">
-            <span className="text-sm text-slate-600 dark:text-slate-400">
-              {label}
-            </span>
-            <span className="text-xs font-medium tabular-nums text-slate-400 dark:text-slate-500">
+            <span className="text-sm text-slate-600">{label}</span>
+            <span className="text-xs font-medium tabular-nums text-slate-400">
               {mounted ? value : 0}%
             </span>
           </div>

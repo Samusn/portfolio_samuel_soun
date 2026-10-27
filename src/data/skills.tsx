@@ -52,19 +52,19 @@ export type SkillStat = {
 export const skillsProgress: SkillStat[] = [
   {
     label: "React / Next.js",
-    value: 80,
+    value: 90,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-blue-500!",
     trackClass: "**:data-[slot='progress-track']:bg-blue-500/20!",
   },
   {
     label: "TypeScript / JavaScript",
-    value: 80,
+    value: 85,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-orange-400!",
     trackClass: "**:data-[slot='progress-track']:bg-orange-400/20!",
   },
   {
     label: "Java & REST API",
-    value: 60,
+    value: 65,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-amber-500!",
     trackClass: "**:data-[slot='progress-track']:bg-amber-500/20!",
   },
@@ -76,7 +76,7 @@ export const skillsProgress: SkillStat[] = [
   },
   {
     label: "Linux",
-    value: 70,
+    value: 85,
     indicatorClass: "**:data-[slot='progress-indicator']:bg-teal-400!",
     trackClass: "**:data-[slot='progress-track']:bg-teal-400/20!",
   },

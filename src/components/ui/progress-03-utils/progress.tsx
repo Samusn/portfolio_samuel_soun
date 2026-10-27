@@ -20,11 +20,11 @@ function Progress({ className, value = 0, ...props }: ProgressProps) {
     >
       <div
         data-slot="progress-track"
-        className="h-2 w-full rounded-full bg-slate-100 dark:bg-slate-800"
+        className="h-2 w-full rounded-full bg-slate-100"
       >
         <div
           data-slot="progress-indicator"
-          className="h-full rounded-full bg-slate-900 transition-all duration-1000 ease-out dark:bg-white"
+          className="h-full rounded-full bg-slate-900 transition-all duration-1000 ease-out"
           style={{ width: `${value}%` }}
         />
       </div>
